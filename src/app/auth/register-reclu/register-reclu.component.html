@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Reclutador</title>
+</head>
+
+<body>
+    <div class="formulario">
+        <h1>Registro de Reclutador</h1>
+        <form method="POST" action="registro_reclutador.php">
+            <input type="text" name="nombre" required placeholder="Nombre de la Empresa">
+            <input type="email" name="email" required placeholder="Email Corporativo">
+            <input type="password" name="password" required placeholder="Contraseña">
+            <input type="submit" name="registrarse" value="Registrarse">
+        </form>
+        <div class="login-link">
+            <h2>¿Ya tiene cuenta?</h2> <a [routerLink]="['/login']">Iniciar sesión</a>
+        </div>
+    </div>
+</body>
+
+</html>

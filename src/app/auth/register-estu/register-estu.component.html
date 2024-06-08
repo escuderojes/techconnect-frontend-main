@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Estudiante</title>
+</head>
+
+<body>
+    <div class="formulario">
+        <h1>Registro de Estudiante</h1>
+        <form method="POST" action="registro_estudiante.php">
+            <input type="text" name="nombre" placeholder="Nombre completo">
+            <input type="email" name="email" required placeholder="Correo institucional">
+            <input type="password" name="password" required placeholder="Contraseña">
+            <input type="submit" value="Registrarse">
+        </form>
+        <div class="login-link">
+            <h2>¿Ya tiene cuenta?</h2> <a [routerLink]="['/login']">Iniciar sesión</a>
+        </div>
+    </div>
+</body>
+
+</html>

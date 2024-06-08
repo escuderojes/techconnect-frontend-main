@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    /* Establece la familia de fuentes para el texto del cuerpo de la página, usando Arial como primaria y sans-serif como respaldo. */
+    display: flex;
+    /* Establece el tipo de visualización del elemento <body> como flex. Flexbox es un modelo de diseño que permite acomodar y alinear los elementos hijos de manera eficiente, incluso cuando sus tamaños son desconocidos o dinámicos. */
+    margin: 0;
+    /* Elimina los márgenes por defecto del elemento <body>. Los navegadores suelen tener un margen predeterminado para <body>, esta línea lo establece en 0 para evitar espacios extra alrededor de los bordes de la página. */
+    align-items: center;
+    /* Alinea verticalmente todos los elementos hijos (flex items) al centro del contenedor flex (<body>). Funciona solo cuando el body actúa como un contenedor flex. */
+    justify-content: center;
+    /* Alinea horizontalmente los elementos hijos al centro del contenedor flex. */
+    background-image: linear-gradient(120deg, rgba(108, 52, 131, 0.8), rgba(88, 214, 141, 0.8)), url(../../../../public/img/fondoregistro.jpg);
+    background-size: cover;
+    /* Cubre todo el espacio disponible sin perder las proporciones */
+    background-position: center;
+    /* Centra la imagen en la página */
+    height: 100vh;
+}
+
+.formulario {
+    background: rgba(255, 255, 255, 0.8);
+    /* Establece el color de fondo del formulario con opacidad del 80%. */
+    border: 1px solid #ccc;
+    /* Aplica un borde sólido de 1px de grosor y color gris claro (#ccc) alrededor del formulario. */
+    padding: 28px;
+    /* Establece un relleno de 28px en todos los lados dentro del formulario, dando espacio entre el borde y el contenido interior. */
+    border-radius: 10px;
+    /* Redondea las esquinas del borde del formulario con un radio de 10px. */
+    margin: 40px;
+    /* Añade un margen de 40px alrededor del formulario para separarlo de otros elementos. */
+    width: 350px;
+    /* Define un ancho fijo de 350px para el formulario. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Aplica una sombra de caja ligera para un efecto de profundidad. */
+}
+
+.formulario h1 {
+    text-align: center;
+    /* Centra el texto de los encabezados <h1> dentro del formulario. */
+    font-size: 29px;
+    /* Establece el tamaño de la fuente de los encabezados <h1> dentro del formulario a 29px. */
+    margin-bottom: 25px;
+    /* Añade un margen inferior de 25px bajo los encabezados <h1> para separarlos de otros contenidos siguientes. */
+    padding: 0 0 20px 0;
+    /* Establece el relleno en la parte inferior de 20px para separar el texto del borde inferior. */
+    border-bottom: 1px solid silver;
+    /* Agrega una línea sólida de color plateado (#C0C0C0) como borde inferior de los encabezados <h1> dentro del formulario. */
+}
+
+select {
+    width: calc(100% - 1px);
+    /* Establece el ancho del combobox igual al de los otros inputs */
+    padding: 10px;
+    /* Aplica el mismo relleno que los otros inputs */
+    margin-bottom: 14px;
+    /* Añade el mismo margen que los otros inputs */
+    border: 2px solid #ccc;
+    /* Mantiene el borde igual que los otros inputs */
+    border-radius: 2px;
+    /* Puedes ajustar el radio de las esquinas si lo deseas */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    /* Establece el ancho de los inputs a un cálculo dinámico que toma el 100% del ancho del contenedor y le resta 22px. Esto ayuda a ajustar el ancho considerando el padding y bordes. */
+    padding: 10px;
+    /* Aplica un relleno de 10px en todos los lados dentro de cada input, mejorando la legibilidad y la facilidad de interacción. */
+    margin-bottom: 14px;
+    /* Añade un margen inferior de 14px para separar cada input de los que están debajo. */
+    border: 2px solid #ccc;
+    /* Define un borde de 2px sólido y de color gris claro para los inputs, manteniendo la coherencia visual con el estilo del formulario. */
+}
+
+input[type="submit"] {
+    width: 200px;
+    /* Permite que el ancho del botón de envío se ajuste automáticamente según su contenido. */
+    padding: 15px;
+    /* Aplica un relleno de 15px en todos los lados del botón de envío para mejorar su aspecto visual y su facilidad de uso. */
+    background-color: #0056b3;
+    /* Establece el color de fondo del botón de envío. */
+    color: white;
+    /* Establece el color del texto del botón de envío como blanco para contrastar con el fondo. */
+    border-radius: 25px;
+    /* Redondea las esquinas del botón de envío con un radio de 25px para una apariencia ovalada. */
+    font-size: 18px;
+    /* Establece el tamaño de fuente del texto en el botón de envío en 18px para legibilidad. */
+    border: none;
+    /* Elimina el borde del botón de envío para darle un aspecto más limpio y moderno. */
+    cursor: pointer;
+    /* Cambia el cursor del ratón a una mano cuando se coloca sobre el botón de envío, indicando que es interactivo. */
+    margin: 0 auto;
+    /* Centra el botón de envío horizontalmente dentro de su contenedor aplicando márgenes automáticos en los lados izquierdo y derecho. */
+    display: block;
+    /* Hace que el botón de envío sea un elemento de bloque para que pueda ocupar todo el ancho disponible y centrarse correctamente. */
+}
+
+input[type="submit"]:hover {
+    background-color: #004494;
+    /* Cambia el color de fondo del botón de envío cuando el cursor del ratón se sitúa sobre él, creando un efecto visual de realimentación para el usuario. */
+    transition: .5s;
+}
+
+.login-link {
+    text-align: center;
+    /* Centra horizontalmente el contenido dentro del elemento con la clase "login-link", que probablemente contiene un enlace de inicio de sesión. */
+    margin-top: 10px;
+    /* Añade un margen superior de 10px al elemento con la clase "login-link" para separarlo visualmente de otros elementos cercanos. */
+}
+
+.login-link a {
+    text-decoration: none;
+    /* Elimina la decoración del texto del enlace dentro del elemento con la clase "login-link", como subrayado o cambio de color al hacer clic. */
+    color: #0056b3;
+    /* Establece el color del texto del enlace dentro del elemento con la clase "login-link". */
+}

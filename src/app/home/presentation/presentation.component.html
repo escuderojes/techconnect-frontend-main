@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="app/assets/img/UCV-icono.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <a href="#" class="logo">
+                <img src="./img/logo.png" alt="Descripción de la imagen">
+            </a>
+            <a href="#">
+                <h2 class="nombreproyecto">TechConnect: Conectando Talento Tecnológico</h2>
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['/login']">Iniciar Sesión</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="fondo">
+        <img class="imgpresentacion" src="./img/fondo.jpeg">
+    </div>
+
+    <section class="proyecto">
+        <h2 class="preguntainicial"> ¿De qué trata el Ranking Estudiantil? </h2>
+        <p class="contextoproyecto">
+            TechConnect es una plataforma diseñada para conectar a estudiantes talentosos de Ingeniería de Sistemas
+            y Ciberseguridad con oportunidades profesionales en el campo tecnológico.
+            Ofrece a las empresas la posibilidad de encontrar
+            talento técnico altamente calificado y especializado, simplificar el proceso de
+            reclutamiento y conocer a los futuros profesionales de la tecnología.
+        </p>
+        <hr>
+        <h2 class="preguntasec"> ¿Listo para descubrir nuevas oportunidades? </h2>
+    </section>
+    <section class="inforegistro">
+        <article class="estudiante">
+            <h3>Como Estudiante...</h3>
+            <p class="beneficio"> Regístrate como estudiante para destacar tus habilidades y proyectos tecnológicos,
+                encontrar oportunidades de prácticas profesionales y proyectos que se adapten a tus intereses, y
+                conectar con empresas líderes en tecnología que buscan talento como el tuyo.</p>
+            <a [routerLink]="['/register_estu']" class="registro">Registrarme</a>
+        </article>
+        <article class="reclutador">
+            <h3 class="serreclutador">Como Reclutador...</h3>
+            <p class="beneficio">Regístrate como reclutador para encontrar el talento que se adecue a tus necesidades
+                para tus proyectos, publicar
+                oportunidades de prácticas y proyectos, y conocer a los futuros profesionales de la tecnología que
+                pueden impulsar el éxito de tu empresa o proyecto.</p>
+            <a [routerLink]="['/register_reclu']" class="registro">Registrarme</a>
+        </article>
+    </section>
+    <footer>
+        <div class="container">
+            <ul class="contacto">
+                <li><strong>Contacto</strong></li>
+                <li>Whatsapp: <a href="https://wa.me/51926980976" target="_blank">926980976</a></li>
+                <li>Gmail: <a href="mailto:jeescuderos@ucvvirtual.edu.pe">jeescuderos&#64;ucvvirtual.edu.pe</a></li>
+                <li>Conoce nuestros campus</li>
+            </ul>
+            <div class="logo">
+                <img src="./img/logo.png" alt="logo de la universidad" style="height: 60px;">
+            </div>
+        </div>
+        <p style="text-align: center;">&#64;Todos Los Derechos reservados - Universidad César Vallejo</p>
+    </footer>
+</body>
+
+</html>

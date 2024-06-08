@@ -1,0 +1,238 @@
+/* Estilos base */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/* HEADER Y NAV*/
+header {
+    background-color: #243659;
+    min-height: 70px;
+}
+
+.contenedor {
+    max-width: 2400px;
+    padding: 0 10px;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.logo {
+    align-items: center;
+}
+
+.nombreproyecto {
+    color: white;
+    min-width: 250px;
+    text-align: center;
+    font-size: 0.92em;
+}
+
+.logo img {
+    height: 60px;
+    padding-top: 10px;
+}
+
+nav {
+    padding: 0 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+nav a:hover {
+    background: rgb(182, 14, 14);
+}
+
+/* IMAGEN DE PRESENTACION*/
+.fondo {
+    text-align: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.imgpresentacion {
+    width: 100%;
+}
+
+.proyecto {
+    text-align: center;
+}
+
+.preguntainicial {
+    font-size: 25px;
+}
+
+.contextoproyecto {
+    text-align: justify;
+    font-size: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.preguntasec {
+    padding-top: 10px;
+}
+
+.inforegistro {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 10px;
+}
+
+.estudiante,
+.reclutador {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    min-width: 250px;
+}
+
+.estudiante:hover,
+.reclutador:hover {
+    background-color: #e0e0e0;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.beneficio {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.registro {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.registro:hover {
+    background-color: #243659;
+
+}
+
+
+/* Estilos para imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* FOOTER */
+/* Estilos para el footer */
+footer {
+    background-color: #243659;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+footer ul li strong {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+footer .logo img {
+    height: 50px;
+}
+
+footer ul li a {
+    color: #fff;
+    /* Color blanco para los enlaces */
+    text-decoration: none;
+    /* Sin subrayado */
+    font-weight: bold;
+    /* Texto en negrita */
+    font-size: 15px;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el mouse */
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 720px) {
+    header {
+        min-height: 70px;
+    }
+
+    .contenedor {
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .logo img {
+        height: 60px;
+        padding-top: 10px;
+    }
+
+    .logo {
+        gap: 30px;
+    }
+
+    .nombreproyecto {
+        font-size: 35px;
+    }
+
+    nav a {
+        font-size: 22px;
+        padding: 20px;
+    }
+
+}
