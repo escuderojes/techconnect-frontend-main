@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechConnect</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="app/assets/img/UCV-icono.png" type="image/x-icon">
-</head>
+<link rel="shortcut icon" href="/public/img/icono.png" type="image/x-icon">
 
 <body>
     <header>
@@ -54,7 +40,7 @@
             <p class="beneficio"> Regístrate como estudiante para destacar tus habilidades y proyectos tecnológicos,
                 encontrar oportunidades de prácticas profesionales y proyectos que se adapten a tus intereses, y
                 conectar con empresas líderes en tecnología que buscan talento como el tuyo.</p>
-            <a [routerLink]="['/register_estu']" class="registro">Registrarme</a>
+            <a [routerLink]="['/register/estu']" class="registro">Registrarme</a>
         </article>
         <article class="reclutador">
             <h3 class="serreclutador">Como Reclutador...</h3>
@@ -62,7 +48,7 @@
                 para tus proyectos, publicar
                 oportunidades de prácticas y proyectos, y conocer a los futuros profesionales de la tecnología que
                 pueden impulsar el éxito de tu empresa o proyecto.</p>
-            <a [routerLink]="['/register_reclu']" class="registro">Registrarme</a>
+            <a [routerLink]="['/register/reclu']" class="registro">Registrarme</a>
         </article>
     </section>
     <footer>
@@ -80,5 +66,3 @@
         <p style="text-align: center;">&#64;Todos Los Derechos reservados - Universidad César Vallejo</p>
     </footer>
 </body>
-
-</html>

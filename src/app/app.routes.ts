@@ -13,5 +13,9 @@ export const routes: Routes = [
     {
         path: 'home',
         loadChildren: () => import('./home/home.routes').then(m => m.HOME_ROUTES)
+    },
+    {
+        path: 'reclutador',
+        loadChildren: () => import('./reclutador/reclutador.routes').then(m => m.RECLUTADOR_ROUTES)
     }
 ];

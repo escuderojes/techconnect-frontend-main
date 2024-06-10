@@ -5,6 +5,6 @@ import { RegisterRecluComponent } from './register-reclu/register-reclu.componen
 
 export const AUTH_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'register_estu', component: RegisterEstuComponent },
-    { path: 'register_reclu', component: RegisterRecluComponent }
+    { path: 'register/estu', component: RegisterEstuComponent },
+    { path: 'register/reclu', component: RegisterRecluComponent }
 ];

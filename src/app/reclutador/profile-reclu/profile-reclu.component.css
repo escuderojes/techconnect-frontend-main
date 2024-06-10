@@ -1,0 +1,114 @@
+body {
+    display: grid;
+
+}
+
+.custom-input-group {
+    max-width: 300px;
+}
+
+#selectedImage {
+    width: 300px;
+    /* Establece un ancho fijo */
+    height: 300px;
+    /* Establece un alto fijo */
+    object-fit: cover;
+    /* Mantiene la proporción de la imagen */
+}
+
+/* css para el posicionamiento de los objetos  */
+img {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+#datah,
+#datah2 {
+    float: inline-end;
+    margin: 0 5px 0 0;
+    padding: 0 5px 0 0;
+
+}
+
+img {
+
+    margin-left: 50px;
+}
+
+div {
+
+    background-color: rgb(92, 79, 116);
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0;
+
+}
+
+textarea {
+    max-width: 100%;
+    padding-right: 50%;
+}
+
+#dataes {
+    margin-left: 5%;
+}
+
+#btndata {
+    position: relative;
+    color: white;
+    background-color: rgb(18, 2, 31);
+    border-color: rgb(18, 2, 31);
+}
+
+#btndatah {
+    margin: 1% 0 2% 0;
+}
+
+#datah {
+    padding-bottom: 1%;
+}
+
+h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#selectedImage {
+    align-items: center;
+    margin: 0 35% 20px 35%;
+}
+
+#dataes {
+    margin-bottom: 30px;
+}
+
+#img {
+    background-color: rgb(43, 32, 59);
+}
+
+#datah {
+    margin: 0 0 0 1%;
+}
+
+h1 {
+    margin: 2% 0 1% 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.h2habi {
+    margin-left: 4%;
+}
+
+#nav {
+    font-size: 200%;
+    background-color: rgb(43, 32, 59);
+
+}
+
+#navtxt {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(92, 79, 116);
+}

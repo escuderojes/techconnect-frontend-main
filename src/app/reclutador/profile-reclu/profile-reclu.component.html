@@ -1,0 +1,59 @@
+<body>
+
+    <header>
+        <ul class="nav nav-tabs" id="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" [routerLink]="['/reclutador/page/main/reclu']"
+                    id="navtxt">Retornar</a>
+            </li>
+        </ul>
+        <h1>Bienvenido, Nombre de la Empresa!</h1>
+    </header>
+
+    <div class="container-sm">
+        <div class="container-sm" id="img">
+            <img id="selectedImage"
+                src="https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png"
+                class="img-thumbnail" alt="Imagen predeterminada">
+        </div>
+
+        <div class="col-md-6" id="datah2">
+            <h2>Sobre Nosotros</h2>
+            <textarea name="career_info" id="career_info" rows="10" placeholder="Describa su Empresa"
+                class="formbold-form-input" readonly>Descripción de la Empresa</textarea>
+        </div>
+
+        <div class="col-md-6" id="dataes">
+            <h2>Datos del Reclutador</h2>
+            <p><strong>Nombre de la Empresa:</strong> Nombre de la Empresa</p>
+            <p><strong>Email:</strong> ejemplocorreo.com</p>
+            <p><strong>Dirección:</strong> Dirección de la Empresa</p>
+            <p><strong>Teléfono:</strong> 123-456-7890</p>
+            <a [routerLink]="['/reclutador/register/data/reclu']"><button type="button" class="btn btn-primary"
+                    id="btndata">Registrar
+                    Datos</button></a>
+            <a [routerLink]="['/reclutador/update/data/reclu']"><button type="button" class="btn btn-primary"
+                    id="btndata">Actualizar
+                    Datos</button></a>
+        </div>
+    </div>
+
+
+    <!-- <script>
+        document.getElementById('inputGroupFileAddon04').addEventListener('click', function () {
+            const input = document.getElementById('inputGroupFile04');
+            const img = document.getElementById('selectedImage');
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            } else {
+                alert('Por favor, selecciona una imagen primero.');
+            }
+        });
+    </script> -->
+
+</body>
