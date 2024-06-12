@@ -1,1 +1,254 @@
-<p>pag-main-estu works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Buscar por...">
+        </div>
+        <div class="filter">
+            <select id="filter">
+                <option value="">Filtrar por...</option>
+                <option value="fecha_inicio">Fecha de Inicio</option>
+                <option value="habilidades_buscadas">Habilidades Buscadas</option>
+            </select>
+        </div>
+        <div class="user-input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" name="user" id="user" placeholder="Usuario" list="user-options">
+            <div class="dropdown">
+                <a [routerLink]="['/estudiante/profile-estu']">Ver perfil</a>
+                <a href="#" >Cerrar Sesion</a> 
+            </div>
+        </div>
+    </div>
+    <div class="b-section-regular">
+        <div class="b-container-small">  
+            
+            <div class="w-layout-grid b-integration-grid">
+                        <div id="w-node-_1b6b70a0-c33d-c1ba-dd3a-9ac77c12c07f-c152b223" class="b-integration-card">
+                            <div class="b-integration-icon-outline">
+                                <img src="./img/google.png" 
+                                loading="lazy" alt="">
+                            </div>
+                            <div class="margin-bottom-08">
+                                <div class="paragraph-large b-text-weight-semibold">
+                                    Google
+                                </div>
+                            </div>
+                            <div class="b-paragraph-small b-text-color-gray-700">
+                                <span class="b-span-primary">
+                                    Ciberseguridad   
+                                </span>
+                                <ul>
+                                    <li>Proyecto: Desarrollo de Software</li>
+                                    <li>Descripción: Proyecto de desarrollo de software innovador</li>
+                                    <li>Fecha de Inicio: 2024-06-01</li>
+                                    <li>Requisitos: Conocimientos en Java, Python</li>
+                                </ul>   
+                            </div>
+                            <div class="b-integration-button-wrapper">
+                                <a href="#" class="b-button-default-icon w-inline-block">
+                                    <div>
+                                        Ver más
+                                    </div>
+                                    <div class="b-icon-xxsmall w-embed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
+                                        Z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="w-node-_3d8bdcc6-e518-fc33-b5be-4e029ada4b65-c152b223" class="b-integration-card">
+                        <div class="b-integration-icon-outline">
+                            <img src="./img/bcp.png" loading="lazy" alt="">
+                        </div>
+                        <div class="margin-bottom-08">
+                            <div class="paragraph-large b-text-weight-semibold">
+                                BCP
+                            </div>
+                        </div>
+                        <div class="b-paragraph-small b-text-color-gray-700">
+                            <span class="b-span-primary">
+                                Ciberseguridad                      
+                            </span>
+                            <ul>
+                                <li>Proyecto: Desarrollo de Software</li>
+                                <li>Descripción: Proyecto de desarrollo de software innovador</li>
+                                <li>Fecha de Inicio: 2024-06-01</li>
+                                <li>Requisitos: Conocimientos en Java, Python</li>
+                            </ul>                                
+                        </div>
+                        <div class="b-integration-button-wrapper">
+                            <a href="#" class="b-button-default-icon w-inline-block">
+                                <div>
+                                    Ver más
+                                </div>
+                                <div class="b-icon-xxsmall w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                                    viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
+                                        Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="w-node-e19eacd8-c566-bf55-9287-141cab341c87-c152b223" class="b-integration-card">
+                    <div class="b-integration-icon-outline">
+                        <img src="./img/bbva.jpg" 
+                        loading="lazy" alt="">
+                    </div>
+                    <div class="margin-bottom-08">
+                        <div class="paragraph-large b-text-weight-semibold">
+                           BBVA
+                        </div>
+                    </div>
+                    <div class="b-paragraph-small b-text-color-gray-700">
+                        <span class="b-span-primary">
+                            Ingeniería de Sistemas
+                        </span>
+                        <ul>
+                            <li>Proyecto: Investigación de Mercado</li>
+                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
+                            <li>Fecha de Inicio: 2024-07-01</li>
+                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
+                        </ul>  
+                    </div>
+                    <div class="b-integration-button-wrapper">
+                        <a href="#" class="b-button-default-icon w-inline-block">
+                            <div>
+                                Ver más
+                            </div>
+                            <div class="b-icon-xxsmall w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
+                                        Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="w-node-_6c70e26c-4c30-b3ee-05bf-1e81bcb38357-c152b223" class="b-integration-card">
+                    <div class="b-integration-icon-outline">
+                        <img src="./img/microsoft.png" 
+                        loading="lazy" alt="">
+                    </div>
+                    <div class="margin-bottom-08">
+                        <div class="paragraph-large b-text-weight-semibold">
+                            Microsoft
+                        </div>
+                    </div>
+                    <div class="b-paragraph-small b-text-color-gray-700">
+                        <span class="b-span-primary">
+                            Ingeniería de Sistemas                             
+                        </span>
+                        <ul>
+                            <li>Proyecto: Investigación de Mercado</li>
+                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
+                            <li>Fecha de Inicio: 2024-07-01</li>
+                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
+                        </ul>                           
+                    </div>
+                    <div class="b-integration-button-wrapper">
+                        <a href="#" class="b-button-default-icon w-inline-block">
+                            <div>
+                                Ver más
+                            </div>
+                            <div class="b-icon-xxsmall w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
+                                        Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="w-node-_6330e86f-f6c6-4699-0f93-d1a44b0502c0-c152b223" class="b-integration-card">
+                    <div class="b-integration-icon-outline">
+                        <img src="./img/amazon.png" 
+                        loading="lazy" alt="">
+                    </div>
+                    <div class="margin-bottom-08">
+                        <div class="paragraph-large b-text-weight-semibold">
+                            Amazon
+                        </div>
+                    </div>
+                    <div class="b-paragraph-small b-text-color-gray-700">
+                        <span class="b-span-primary">
+                            Ciberseguridad
+                        </span>
+                        <ul>
+                            <li>Proyecto: Desarrollo de Software</li>
+                            <li>Descripción: Proyecto de desarrollo de software innovador</li>
+                            <li>Fecha de Inicio: 2024-06-01</li>
+                            <li>Requisitos: Conocimientos en Java, Python</li>
+                        </ul>  
+                    </div>
+                    <div class="b-integration-button-wrapper">
+                        <a href="#" class="b-button-default-icon w-inline-block">
+                            <div>
+                                Ver más
+                            </div>
+                            <div class="b-icon-xxsmall w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                    17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" 
+                                    fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="w-node-_90e335da-3303-6969-a26c-e480e5d2a856-c152b223" class="b-integration-card">
+                    <div class="b-integration-icon-outline">
+                        <img src="./img/ebay.png" 
+                        loading="lazy" alt="">
+                    </div>
+                    <div class="margin-bottom-08">
+                        <div class="paragraph-large b-text-weight-semibold">
+                            eBay
+                        </div>
+                    </div>
+                    <div class="b-paragraph-small b-text-color-gray-700">
+                        <span class="b-span-primary">
+                            Ingeniería de Sistemas
+                        </span>
+                        <ul>
+                            <li>Proyecto: Investigación de Mercado</li>
+                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
+                            <li>Fecha de Inicio: 2024-07-01</li>
+                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
+                        </ul>  
+                    </div>
+                    <div class="b-integration-button-wrapper">
+                        <a href="#" class="b-button-default-icon w-inline-block">
+                            <div>
+                                Ver más
+                            </div>
+                            <div class="b-icon-xxsmall w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
+                                    17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" 
+                                    fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
