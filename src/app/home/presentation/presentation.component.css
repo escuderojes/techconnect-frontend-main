@@ -236,3 +236,14 @@ footer ul li a:hover {
     }
 
 }
+
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.preguntainicial,
+.preguntasec {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

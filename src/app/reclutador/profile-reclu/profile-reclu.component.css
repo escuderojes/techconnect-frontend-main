@@ -1,5 +1,6 @@
-body {
+.container-body {
     display: grid;
+    position: rel;
 
 }
 
