@@ -13,7 +13,7 @@ import { ActuDataRecluComponent } from './reclutador/actu-data-reclu/actu-data-r
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, LoginComponent, RegisterEstuComponent,
-    RegisterRecluComponent, PresentationComponent, PageMainRecluComponent, ProfileRecluComponent, RegDataRecluComponent, ActuDataRecluComponent],
+    RegisterRecluComponent, PresentationComponent, PageMainRecluComponent, ProfileRecluComponent, RegDataRecluComponent, ActuDataRecluComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,84 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} */
+
+/* .container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #007BFF;
+} */
+
+.circles-wrapper {
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    gap: 30px;
+    /* Espacio entre los elementos */
+}
+
+.circleCon {
+    display: inline-flex;
+    flex-direction: column;
+    /* Alinea los elementos internos en columna */
+    align-items: center;
+    position: relative;
+    right: 50%;
+    left: 50px;
+    padding: 30px;
+    /* para que sea mas pequeño y quepa 2 en una linea */
+    width: 309.92px;
+    height: 354.98px;
+
+}
+
+
+
+.circular-progress {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#2A4B7C 1.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.progress-value {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #383d44;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: 500;
+    color: #262c35;
+
+}
+
+#textpro {
+    padding-bottom: 30px;
+}

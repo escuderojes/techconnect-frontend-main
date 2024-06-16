@@ -17,5 +17,9 @@ export const routes: Routes = [
     {
         path: 'reclutador',
         loadChildren: () => import('./reclutador/reclutador.routes').then(m => m.RECLUTADOR_ROUTES)
+    },
+    {
+        path: 'portafolio_reclu',
+        loadChildren: () => import('./portafolio_reclu/porta.routes').then(m => m.PORTAFOLIO_RECLU_ROUTES)
     }
 ];

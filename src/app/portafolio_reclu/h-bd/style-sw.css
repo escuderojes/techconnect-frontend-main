@@ -1,0 +1,30 @@
+.bg-primary {
+    background-color: #138D75 !important;
+}
+
+#btn-reclu {
+    background-color: #138D75;
+    border-color: #138D75;
+}
+
+.btn-outline-primary:hover {
+    background-color: #138D75;
+    border-color: #138D75;
+
+}
+
+
+
+.bg-secondary {
+    background-color: #0E6655 !important;
+}
+
+.btn-primary {
+    background-color: #138D75;
+    border-color: #138D75;
+}
+
+.btn-primary:hover {
+    background-color: #0E6655;
+    border-color: #0E6655;
+}

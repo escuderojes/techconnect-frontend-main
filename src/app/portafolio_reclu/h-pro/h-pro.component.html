@@ -1,0 +1,118 @@
+<div class="container-body">
+
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
+                <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3"
+                    src="/public/img/profile.jpg" alt="Image">
+                <h1 class="font-weight-bold">Kate Glover</h1>
+                <p class="mb-4">
+                    Me dedico a desarrollar soluciones tecnológicas innovadoras y a proteger la información en un
+                    entorno cada vez más digitalizado.
+                </p>
+                <div class="d-flex justify-content-center mb-5">
+                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Reclutame</a>
+            </div>
+            <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+                <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Navbar Start -->
+            <div class="container p-0">
+                <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                    <a href="" class="navbar-brand d-block d-lg-none">Navegador</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav m-auto">
+
+                            <a [routerLink]="['/portafolio_reclu/about']" class="nav-item nav-link">Sobre mi</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active"
+                                    data-toggle="dropdown">Habilidades</a>
+                                <div class="dropdown-menu">
+                                    <a [routerLink]="['/portafolio_reclu/hab/pro']"
+                                        class="dropdown-item">Programación</a>
+                                    <a [routerLink]="['/portafolio_reclu/hab/bd']" class="dropdown-item">Base de
+                                        Datos</a>
+                                </div>
+                            </div>
+                            <a [routerLink]="['/portafolio_reclu/contact']" class="nav-item nav-link">Contacto</a>
+                            <a [routerLink]="['/reclutador/page/main/reclu']" class="nav-item nav-link">Salir</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Navbar End -->
+
+            <!-- Page Header Start -->
+            <div class="container py-5 px-2 bg-primary">
+                <div class="row py-5 px-4">
+                    <div class="col-sm-6 text-center text-md-left">
+                        <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">Programación</h1>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
+            <!-- Habilities Start -->
+            <div class="container bg-white pt-5">
+                <div class="row px-3 pb-5">
+                    <div class="col-md-12" id="textpro">
+                        <h2 class="mb-4 font-weight-bold">MIS HABILIDADES</h2>
+
+                        <p class="m-0">
+                            Domino una amplia gama de tecnologías y herramientas para crear soluciones en diferentes
+                            campos de desarrollo de alta
+                            calidad.
+                        </p>
+                    </div>
+                    <div *ngFor="let skill of skills" [id]="skill.id" class="circleCon">
+
+                        <div class="circular-progress">
+                            <span class="progress-value">0%</span>
+                        </div>
+                        <span class="text">{{ skill.name }}</span>
+                    </div>
+
+
+                    <!-- Habilities End -->
+
+                    <!-- Footer Start -->
+                    <div class="container py-4 bg-secondary text-center">
+                        <p class="m-0 text-white">
+                            &copy; <a class="text-white font-weight-bold" href="#">TechConnect</a>. All Rights
+                            Reserved.
+                            Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">Universidad
+                                César
+                                Vallejo</a>
+                        </p>
+                    </div>
+                    <!-- Footer End -->
+                </div>
+            </div>
+
+            <!-- Back to Top -->
+            <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+            <!-- JavaScript Libraries -->
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+            <script src="/public/easing/easing.min.js"></script>
+            <script src="/public/waypoints/waypoints.min.js"></script>
+            <!-- Template Javascript -->
+            <script src="/public/js/main.js"></script>
+
+            <script src="./script-pro.js"></script>
+        </div>
+    </div>
+</div>
