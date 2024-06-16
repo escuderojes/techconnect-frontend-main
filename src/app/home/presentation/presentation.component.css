@@ -118,6 +118,13 @@ nav a:hover {
     border-radius: 5px;
     background-color: #f0f0f0;
     min-width: 250px;
+    user-select: none;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 30px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    position: relative;
 }
 
 .estudiante:hover,

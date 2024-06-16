@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inser-data-estu',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './inser-data-estu.component.html',
   styleUrl: './inser-data-estu.component.css'
 })

@@ -41,8 +41,8 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
             <p><strong>Carrera:</strong> Carrera del estudiante</p>
             <p>No se encontraron datos del estudiante.</p>
         <!-- boton para editar datos -->
-        <a href="{{route('edit-datos.estudiante')}}"><button type="button" class="btn btn-primary" id="btndata">Registrar Datos</button></a>
-        <a href="{{route('actualizar-datos.estudiante')}}" ><button type="button" class="btn btn-primary" id="btndata">Actualizar Datos</button></a>
+        <a [routerLink]="['/estudiante/inser-data-estu']"><button type="button" class="btn btn-primary" id="btndata">Registrar Datos</button></a>
+        <a [routerLink]="['/estudiante/actu-data-estu']"><button type="button" class="btn btn-primary" id="btndata">Actualizar Datos</button></a>
     </div>
 
     <div class="container-sm" id="datah">
