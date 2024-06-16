@@ -216,164 +216,56 @@
             </nav>
 
         </div>
-        <a [routerLink]="['/reclutador/profile/reclu']" class="nav-link" id="nav-perfil">Ver perfil</a>
+        <a [routerLink]="['/reclutador/profile']" class="nav-link" id="nav-perfil">Ver perfil</a>
         <a href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
         <a href="#" class="nav-link" id="nav-mess">Postulaciones <span class="badge bg-secondary"
                 id="mess-span">4</span></a>
-        <a href="#" class="nav-link" id="nav-mess">Cerrar Sesión</a>
+        <a class="nav-link" href="#" id="nav-mess" (click)="onLogout($event)">Cerrar Sesión</a>
     </header>
 
-    <div class="card">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80"
-                    alt="">
+    <div class="container">
+        <div class="row">
+          <!-- Mostrar error si existe -->
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+      
+          <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
+          <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
+            <div class="card">
+              <div class="head">
+                <div class="circle"></div>
+                <div class="img">
+                  <img [src]="getImageUrl(estudiantes.photo)" alt="Foto del Estudiante">
+                </div>
+              </div>
+              <div class="description">
+                <h3>{{ estudiantes.nombres }}</h3>
+                <h4>{{ estudiantes.carrera }}</h4>
+                <p>{{ estudiantes.bio }}</p>
+              </div>
+              <div class="contact">
+                <a href="#">Contactar</a>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="description">
-            <h3>Adreana Armas</h3>
-            <h4>Ingeniera de Sistemas</h4>
-            <p>Amo la programación; es más un hobby que un trabajo, quiero aportar soluciones eficientes y escalables.
-            </p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-    <!-- Repetir estructura de card para otros perfiles -->
-    <div class="card">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
-                    alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Rosa Magdalena</h3>
-            <h4>Ingeniera de Sistemas</h4>
-            <p>Entusiasta del software. Experto en optimizar procesos, ofrezco soluciones robustas y eficientes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-    <div class="card" id="card3">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=296&q=80"
-                    alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Ronaldinho Gaúcho</h3>
-            <h4>ciberseguridad</h4>
-            <p>Apasionado de la ciberseguridad, experto en medidas de seguridad y respuesta a incidentes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-    <!-- Repetir esta estructura para los demás perfiles -->
-
-    <div class="card">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
-                    alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Rosita Piaza</h3>
-            <h4>Ingeniera de Sistemas</h4>
-            <p>Entusiasta del software. Experto en optimizar procesos, ofrezco soluciones robustas y eficientes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://www.seoptimer.com/storage/images/2014/08/selfie.jpg" alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Chan-Yeol</h3>
-            <h4>Ingeniera de Sistemas</h4>
-            <p>Entusiasta del software. Experto en optimizar procesos, ofrezco soluciones robustas y eficientes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-    <div class="card" id="card5">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/retrato-anillo-luz.webp" alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Kim Jong-un</h3>
-            <h4>ciberseguridad</h4>
-            <p>Apasionado de la ciberseguridad, experto en medidas de seguridad y respuesta a incidentes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-    <div class="card" id="card5">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/retrato-anillo-luz.webp" alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Kim Jong-un</h3>
-            <h4>ciberseguridad</h4>
-            <p>Apasionado de la ciberseguridad, experto en medidas de seguridad y respuesta a incidentes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-    <div class="card" id="card5">
-        <div class="head">
-            <div class="circle"></div>
-            <div class="img">
-                <img src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/retrato-anillo-luz.webp" alt="">
-            </div>
-        </div>
-        <div class="description">
-            <h3>Kim Jong-un</h3>
-            <h4>ciberseguridad</h4>
-            <p>Apasionado de la ciberseguridad, experto en medidas de seguridad y respuesta a incidentes.</p>
-        </div>
-        <div class="contact">
-            <a [routerLink]="['/portafolio_reclu/about']">Contactar</a>
-        </div>
-    </div>
-
-
-
-    <nav aria-label="..." id="pagination">
-        <ul class="pagination pagination-sm">
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-        </ul>
-    </nav>
+     <!-- Paginación -->
+  <nav aria-label="Paginación">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="cambiarPagina(currentPage - 1)" aria-label="Anterior">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+        <a class="page-link" (click)="cambiarPagina(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="cambiarPagina(currentPage + 1)" aria-label="Siguiente">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

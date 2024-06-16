@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil- Estudiante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <ul class="nav nav-tabs" id="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/home-estudiante" id="navtxt">Retornar</a>
+            </li>
+        </ul>
+        <h1>Bienvenido, Nombre del Estudiante!</h1>
+    </header>
+<!-- boton para guardar los datos en la bd, hay que cambiar la ruta xd -->
+<div class="container-sm">
+    <div class="container-sm" id="img">
+        <img id="selectedImage"
+        src="https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png"
+            class="img-thumbnail" alt="Imagen del estudiante">
+    </div>
+
+    <div class="col-md-6" id="datah2">
+        <!-- Aquí se mostrarán los datos obtenidos de la base de datos -->
+        <h2>Sobre mi</h2>
+        <textarea name="bio" id="bio" rows="10" placeholder="Describa su trayectoria"
+            class="formbold-form-input" readonly> Bio del Estudiante</textarea>
+    </div>
+   
+    <div class="col-md-6" id="dataes">
+        <!-- Aquí se mostrarán los datos obtenidos de la base de datos -->
+        <h2>Datos del Estudiante</h2>
+            <p><strong>Nombres :</strong> Nombres del estudiante</p>
+            <p><strong>Apellidos :</strong> Apellidos del estudiante</p>
+            <p><strong>Email:</strong> ejemplocorreo.com</p>
+            <p><strong>Telefono :</strong> 123-456-789 </p>
+            <p><strong>Carrera:</strong> Carrera del estudiante</p>
+            <p>No se encontraron datos del estudiante.</p>
+        <!-- boton para editar datos -->
+        <a href="#"><button type="button" class="btn btn-primary" id="btndata">Registrar Datos</button></a>
+        <a href="#" ><button type="button" class="btn btn-primary" id="btndata">Actualizar Datos</button></a>
+    </div>
+
+    <div class="container-sm" id="datah">
+        <!-- Aquí se mostrarán los datos obtenidos de la base de datos -->
+
+        <h2 class="h2habi">Habilidades</h2>
+        <ul class="list-group" id="skillpro">
+            <li class="list-group-item active" aria-current="true">Programación</li>
+            <li class="list-group-item" id="skill-javascript">
+                <h5>JavaScript:</h5> Ampliamente utilizado para el
+                desarrollo web, tanto en el lado del cliente como en el servidor (Node.js).
+            </li>
+            <li class="list-group-item" id="skill-python">
+                <h5>Python:</h5> Con una sintaxis clara y legible, es utilizado en una variedad de aplicaciones,
+                desde desarrollo web hasta ciencia de datos y aprendizaje automático.
+            </li>
+            <li class="list-group-item" id="skill-java">
+                <h5>Java:</h5> A pesar de su edad, Java sigue siendo uno de los lenguajes más populares,
+                especialmente en el desarrollo de aplicaciones empresariales y Android.
+            </li>
+            <li class="list-group-item" id="skill-csharp">
+                <h5>C#:</h5> Desarrollado por Microsoft, se utiliza principalmente en el desarrollo de aplicaciones
+                Windows y juegos a través de la plataforma Unity.
+            </li>
+            <li class="list-group-item" id="skill-cplusplus">
+                <h5>C++:</h5> Un lenguaje poderoso utilizado en sistemas embebidos, desarrollo de juegos, software
+                de sistemas y aplicaciones de alto rendimiento.
+            </li>
+            <li class="list-group-item" id="skill-php">
+                <h5>PHP:</h5> Ampliamente utilizado en el desarrollo web para crear sitios dinámicos y aplicaciones
+                web.
+            </li>
+            <li class="list-group-item" id="skill-typescript">
+                <h5>TypeScript:</h5> Un superset de JavaScript que agrega tipos estáticos opcionales y otras
+                características a JavaScript, lo que lo hace más robusto para aplicaciones grandes.
+            </li>
+            <li class="list-group-item" id="skill-ruby">
+                <h5>Ruby:</h5> Conocido por su elegante sintaxis, es utilizado en el desarrollo web a través del
+                framework Ruby on Rails.
+            </li>
+            <li class="list-group-item" id="skill-swift">
+                <h5>Swift:</h5> Desarrollado por Apple, es utilizado para el desarrollo de aplicaciones iOS, macOS,
+                watchOS y tvOS.
+            </li>
+            <li class="list-group-item" id="skill-kotlin">
+                <h5>Kotlin:</h5> Un lenguaje moderno que se ha vuelto popular para el desarrollo de aplicaciones
+                Android, además de ser compatible con Java en la JVM.
+            </li>
+        </ul>
+        <ul class="list-group" id="skilldb">
+            <li class="list-group-item active" aria-current="true">Sistemas de Gestión de Bases de Datos</li>
+            <li class="list-group-item" id="skill-mysql">
+                <h5>MySQL:</h5> Un sistema de gestión de bases de datos relacional de código abierto que es
+                ampliamente utilizado en aplicaciones web.
+            </li>
+            <li class="list-group-item" id="skill-postgresql">
+                <h5>PostgreSQL:</h5> También un sistema de gestión de bases de datos relacional de código abierto,
+                conocido por su robustez, integridad y características avanzadas.
+            </li>
+            <li class="list-group-item" id="skill-sqlserver">
+                <h5>Microsoft SQL Server:</h5> Un sistema de gestión de bases de datos relacional desarrollado por
+                Microsoft, popular en entornos empresariales y con soporte para grandes volúmenes de datos.
+            </li>
+            <li class="list-group-item" id="skill-oracle">
+                <h5>Oracle Database:</h5> Un sistema de gestión de bases de datos relacional muy potente, utilizado
+                en aplicaciones empresariales y grandes sistemas.
+            </li>
+            <li class="list-group-item" id="skill-mongodb">
+                <h5>MongoDB:</h5> Una base de datos NoSQL orientada a documentos, muy popular en aplicaciones web
+                modernas debido a su flexibilidad y escalabilidad.
+            </li>
+            <li class="list-group-item" id="skill-sqlite">
+                <h5>SQLite:</h5> Una base de datos ligera y autónoma que se utiliza a menudo en aplicaciones móviles
+                y en pequeñas aplicaciones.
+            </li>
+            <li class="list-group-item" id="skill-redis">
+                <h5>Redis:</h5> Una base de datos en memoria de código abierto que se utiliza como base de datos,
+                caché y agente de mensajes.
+            </li>
+            <li class="list-group-item" id="skill-amazon">
+                <h5>Amazon RDS:</h5> Un servicio de base de datos relacional en la nube ofrecido por Amazon Web
+                Services (AWS) que soporta varios motores de base de datos, como MySQL, PostgreSQL, Oracle y SQL
+                Server.
+            </li>
+            <li class="list-group-item" id="skill-google">
+                <h5>Google Cloud SQL:</h5> Otro servicio de base de datos relacional en la nube, ofrecido por Google
+                Cloud Platform, que soporta MySQL, PostgreSQL y SQL Server.
+            </li>
+            <li class="list-group-item" id="skill-firebase">
+                <h5>Firebase Realtime Database:</h5> Una base de datos en tiempo real basada en la nube ofrecida por
+                Google, especialmente popular en aplicaciones móviles y web.
+            </li>
+        </ul>
+        <!-- boton para editar -->
+        <a [routerLink]="['/estudiante/inser-skill-estu']"><button type="button" class="btn btn-primary" id="btndatah">Editar
+            Habilidades</button></a>
+    </div>
+</div>
+
+
+<!-- script boostrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<!-- codigo para obtener la imagen -->
+<script>
+    document.getElementById('inputGroupFileAddon04').addEventListener('click', function () {
+        const input = document.getElementById('inputGroupFile04');
+        const img = document.getElementById('selectedImage');
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        } else {
+            alert('Por favor, selecciona una imagen primero.');
+        }
+    });
+</script>
+</body>
+</html>

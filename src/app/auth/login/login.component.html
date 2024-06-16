@@ -1,4 +1,4 @@
-<body>
+ <div class="container-body">
     <div class="container-form register">
         <div class="information">
             <div class="info-childs">
@@ -13,17 +13,17 @@
                 <h2>Inicio de sesión</h2>
                 <br>
                 <p>Para unirte a nuestra comunidad inicia sesión con un nombre de usuario</p>
-                <form class="form form-register" novalidate action="#" method="POST">
+                <form class="form form-register" novalidate (ngSubmit)="onSubmit()" method="POST">
                     <div>
                         <label>
                             <i class='bx bx-user'></i>
-                            <input type="email" required placeholder="Correo Electronico" name="email">
+                            <input type="email" required placeholder="Correo Electronico" name="email" [(ngModel)]="email" autocomplete="email">
                         </label>
                     </div>
                     <div>
                         <label>
                             <i class='bx bx-lock-alt'></i>
-                            <input type="password" required placeholder="Contraseña" name="password">
+                            <input type="password" required placeholder="Contraseña" name="password" [(ngModel)]="password" autocomplete="current-password">
                         </label>
                     </div>
                     <div>
@@ -40,4 +40,5 @@
             </div>
         </div>
     </div>
-</body>
+ </div>
+ 

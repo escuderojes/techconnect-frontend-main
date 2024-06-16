@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+.container-body {
     font-family: 'Inter', sans-serif;
 }
 

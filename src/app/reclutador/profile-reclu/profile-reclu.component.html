@@ -1,40 +1,42 @@
-<header>
-    <ul class="nav nav-tabs" id="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/reclutador/page/main/reclu']"
-                id="navtxt">Retornar</a>
-        </li>
-    </ul>
-    <h1>Bienvenido, Nombre de la Empresa!</h1>
-</header>
-
-
-
 <div class="container-body">
+    <header>
+        <ul class="nav nav-tabs" id="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" [routerLink]="['/reclutador/home.reclutador']"
+                    id="navtxt">Retornar</a>
+            </li>
+        </ul>
+        <h1>Bienvenido, Nombre de la Empresa!</h1>
+    </header>
 
     <div class="container-sm">
         <div class="container-sm" id="img">
-            <img id="selectedImage" src="/public/img/default.png" class="img-thumbnail" alt="Imagen predeterminada">
+            <img id="selectedImage"
+                [src]= "getImageUrl()"
+                class="img-thumbnail" alt="Imagen predeterminada">
         </div>
 
         <div class="col-md-6" id="datah2">
             <h2>Sobre Nosotros</h2>
             <textarea name="career_info" id="career_info" rows="10" placeholder="Describa su Empresa"
-                class="formbold-form-input" readonly>Descripción de la Empresa</textarea>
+                class="formbold-form-input" readonly> {{reclutador?.descripcionEmpresa || 'Descripcion de la Empresa'}} </textarea>
         </div>
 
         <div class="col-md-6" id="dataes">
             <h2>Datos del Reclutador</h2>
-            <p><strong>Nombre de la Empresa:</strong> Nombre de la Empresa</p>
-            <p><strong>Email:</strong> ejemplocorreo.com</p>
-            <p><strong>Dirección:</strong> Dirección de la Empresa</p>
-            <p><strong>Teléfono:</strong> 123-456-7890</p>
-            <a [routerLink]="['/reclutador/register/data/reclu']"><button type="button" class="btn btn-primary"
-                    id="btndata">Registrar
-                    Datos</button></a>
-            <a [routerLink]="['/reclutador/update/data/reclu']"><button type="button" class="btn btn-primary"
-                    id="btndata">Actualizar
-                    Datos</button></a>
+            <p><strong>Nombre de la Empresa:</strong> {{ reclutador?.nombreEmpresa || 'Nombre de la Empresa' }}</p>
+            <p><strong>Email:</strong>{{ reclutador?.correo || 'ejemplo@correo.com' }}</p>
+            <p><strong>Dirección:</strong> {{ reclutador?.direccion || 'Dirección de la Empresa' }}</p>
+            <p><strong>Teléfono:</strong>  {{ reclutador?.telefono || '123-456-7890' }}</p>
+
+              <!-- Botón que cambia según si hay datos del reclutador o no -->
+            <button type="button" class="btn btn-primary" id="btndata" (click)="onButtonClick()">
+                {{ reclutador ? 'Actualizar Datos' : 'Registrar Datos' }}
+            </button>
+        </div>
+                <!-- Mostrar mensaje de error si hay alguno -->
+        <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
         </div>
     </div>
 </div>
