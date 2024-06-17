@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { skillsBd, animateProgress } from './h-bd';
+import { skillsBd, animateProgress, Skill } from './h-bd';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,9 +11,17 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./h-bd.component.css', './circle2.css', './style-sw.css']
 })
 export class HBdComponent implements AfterViewInit {
-  skills = skillsBd;
+  skills: Skill[] = [];
+
+  constructor() {
+    this.skills = skillsBd; // Asigna las habilidades en el constructor
+  }
 
   ngAfterViewInit(): void {
+    // Verifica si 'skills' está correctamente inicializado
+    console.log(this.skills);
+
+    // Llama a 'animateProgress' con las habilidades correctamente inicializadas
     animateProgress(this.skills);
   }
 }
