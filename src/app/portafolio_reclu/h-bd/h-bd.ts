@@ -1,3 +1,4 @@
+// h-bd.ts (Asegúrate de que este archivo esté correctamente configurado)
 export interface Skill {
     id: string;
     name: string;
