@@ -12,7 +12,7 @@
     <div class="container-sm">
         <div class="container-sm" id="img">
             <img id="selectedImage"
-                [src]= "getImageUrl()"
+                [src]="getImageUrl()"
                 class="img-thumbnail" alt="Imagen predeterminada">
         </div>
 
@@ -40,20 +40,3 @@
         </div>
     </div>
 </div>
-
-<!-- <script>
-        document.getElementById('inputGroupFileAddon04').addEventListener('click', function () {
-            const input = document.getElementById('inputGroupFile04');
-            const img = document.getElementById('selectedImage');
-            const file = input.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    img.src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            } else {
-                alert('Por favor, selecciona una imagen primero.');
-            }
-        });
-    </script> -->

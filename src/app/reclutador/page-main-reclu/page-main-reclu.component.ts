@@ -17,6 +17,7 @@ export class PageMainRecluComponent implements OnInit{
   currentPage: number = 1;
   totalPages: number=1;
   errorMessage: string | null=null;
+  reclutador: any = {};
 
   constructor(
     private authService:AuthService, 
@@ -25,17 +26,23 @@ export class PageMainRecluComponent implements OnInit{
 
   ngOnInit(): void {
     this.cargarEstudiantes(this.currentPage);
+    this.cargarDatosReclutador();
   }
 
+  loading:boolean=false;
+
   cargarEstudiantes(page:number): void {
+    this.loading=true;
     this.reclutadorService.obtenerEstudiantesPaginados(page).subscribe({
       next: (response) => {
         this.estudiantes = response.data;
         this.currentPage = response.currentPage;
         this.totalPages = response.last_page;;
+        this.loading=false;
       },
       error: (error) => {
         this.errorMessage = error.message || 'Error al cargar los datos de los estudiantes';
+        this.loading=false;
       }
     });
   }
@@ -44,6 +51,17 @@ export class PageMainRecluComponent implements OnInit{
     if(page > 0 && page<= this.totalPages){
       this.cargarEstudiantes(page);
     }
+  }
+
+  cargarDatosReclutador():void{
+    this.reclutadorService.reclutadorLogueado().subscribe({
+      next: (response) => {
+        this.reclutador= response.reclutador;
+      },
+      error: (error)=>{
+        console.error('Error al cargar los datos del reclutador', error)
+      }
+    });
   }
 
   getImageUrl(imageName: string): string {
@@ -68,7 +86,6 @@ export class PageMainRecluComponent implements OnInit{
       },
       error: (err) => {
         console.error('Logout failed:', err);
-        // Opcional: manejar el error de logout, por ejemplo mostrando un mensaje al usuario
       }
     });
   }

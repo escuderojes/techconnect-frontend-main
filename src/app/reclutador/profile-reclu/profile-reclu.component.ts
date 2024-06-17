@@ -27,6 +27,7 @@ export class ProfileRecluComponent implements OnInit{
 
   ngOnInit(): void {
     this.reclutadorId = this.route.snapshot.paramMap.get('id') ?? '';
+    console.log('Reclutador ID: ', this.reclutadorId)
     if(this.reclutadorId){
       this.cargarDatos();
     }else{
@@ -38,7 +39,7 @@ export class ProfileRecluComponent implements OnInit{
     this.reclutadorService.getReclutador(this.reclutadorId).subscribe({
       next: (response) => {
         this.errorMessage = null;
-        this.reclutador = response;
+        this.reclutador = response.reclutador;
 
          // Si el logo no está definido, usamos 'default.png' como predeterminado
          if (!this.reclutador.logo) {

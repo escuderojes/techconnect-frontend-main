@@ -18,13 +18,25 @@ export class EstudianteService {
   actualizarEstudiante(id:string,estudiante:any): Observable<any>{
     return this.http.put(`${this.apiUrl}/estudiante/${id}`,estudiante);
   }
+  //Obtener datos de estudiante logueado
+  getEstudiante(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/estudiante`);
+  }
+  //Obtener datos estudiante específico
+  obtenerEstudiante(id:string): Observable<any>{
+    return this.http.get(`${this.apiUrl}/estudiante/${id}`);
+  }
   //Obtener Ofertas
-  obtenerEstudiantes(): Observable<any>{
-    return this.http.get(`${this.apiUrl}/ofertas`);
+  obtenerOfertas(page:number=1): Observable<any>{
+    return this.http.get(`${this.apiUrl}/ofertas?page=${page}`);
+  }
+  //Obtener Habilidades
+  obtenerHabilidades(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/habilidades`);
   }
   //Filtrar ofertas por habilidades
-  filtrarEstudiantesporHabilidades(habilidades:any): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/filtrarEstudiantesporHabilidades`,habilidades);
+  filtrarOfertasporHabilidades(habilidades:any): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/filtrar_oferta_por_habilidades`,habilidades);
   }
   //Asociar Habilidades con los estudiantes
   asociarHabilidadesEstudiante(habilidades:any): Observable<any>{

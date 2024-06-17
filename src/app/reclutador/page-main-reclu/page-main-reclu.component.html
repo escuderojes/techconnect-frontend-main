@@ -1,7 +1,6 @@
 <!-- JavaScript Libraries -->
 <div class="container-body">
 
-
     <header>
 
         <div class="container p-0" id="navbar02">
@@ -216,7 +215,7 @@
             </nav>
 
         </div>
-        <a [routerLink]="['/reclutador/profile']" class="nav-link" id="nav-perfil">Ver perfil</a>
+        <a [routerLink]="['/reclutador/profile', reclutador.id]" class="nav-link" id="nav-perfil">Ver perfil</a>
         <a href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
         <a href="#" class="nav-link" id="nav-mess">Postulaciones <span class="badge bg-secondary"
                 id="mess-span">4</span></a>
@@ -230,26 +229,31 @@
             {{ errorMessage }}
           </div>
       
-          <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
-          <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
-            <div class="card">
-              <div class="head">
-                <div class="circle"></div>
-                <div class="img">
-                  <img [src]="getImageUrl(estudiantes.photo)" alt="Foto del Estudiante">
+          <div *ngIf="loading" class="spinner">Cargando...</div>
+
+         <div *ngIf="!loading">
+            <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
+            <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
+                <div class="card">
+                <div class="head">
+                    <div class="circle"></div>
+                    <div class="img">
+                    <img [src]="getImageUrl(estudiantes.photo)" alt="Foto del Estudiante">
+                    </div>
                 </div>
-              </div>
-              <div class="description">
-                <h3>{{ estudiantes.nombres }}</h3>
-                <h4>{{ estudiantes.carrera }}</h4>
-                <p>{{ estudiantes.bio }}</p>
-              </div>
-              <div class="contact">
-                <a href="#">Contactar</a>
-              </div>
+                <div class="description">
+                    <h3>{{ estudiantes.nombres }}</h3>
+                    <h4>{{ estudiantes.carrera }}</h4>
+                    <p>{{ estudiantes.bio }}</p>
+                </div>
+                <div class="contact">
+                    <a href="#">Contactar</a>
+                </div>
+                </div>
             </div>
-          </div>
-        </div>
+            </div>
+         </div>
+          
      <!-- Paginación -->
   <nav aria-label="Paginación">
     <ul class="pagination justify-content-center">

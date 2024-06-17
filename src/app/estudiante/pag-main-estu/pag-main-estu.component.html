@@ -6,7 +6,6 @@
         <div class="filter">
             <select id="filter">
                 <option value="">Filtrar por...</option>
-                <option value="fecha_inicio">Fecha de Inicio</option>
                 <option value="habilidades_buscadas">Habilidades Buscadas</option>
             </select>
         </div>
@@ -14,233 +13,81 @@
             <i class="fas fa-user"></i>
             <input type="text" name="user" id="user" placeholder="Usuario" list="user-options">
             <div class="dropdown">
-                <a [routerLink]="['/estudiante/profile-estu']">Ver perfil</a>
-                <a (click)="onLogout()">Cerrar Sesion</a> 
+                <a [routerLink]="['/estudiante/profile', estudiante.id]">Ver perfil</a>
+                <a href="#" (click)="onLogout($event)">Cerrar Sesion</a> 
             </div>
         </div>
     </div>
-    <div class="b-section-regular">
-        <div class="b-container-small">  
-            
-            <div class="w-layout-grid b-integration-grid">
-                        <div id="w-node-_1b6b70a0-c33d-c1ba-dd3a-9ac77c12c07f-c152b223" class="b-integration-card">
-                            <div class="b-integration-icon-outline">
-                                <img src="./img/google.png" 
-                                loading="lazy" alt="">
-                            </div>
+    <div class="b-section-regular">            
+            <div class="container">
+                <!-- Mostrar error si existe -->
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                  {{ errorMessage }}
+                </div>
+
+                <div *ngIf="loading" class="spinner">Cargando...</div>
+              
+                <div *ngIf="!loading">  
+                    <div class="row">
+                        <!-- Iterar sobre la lista de ofertas y mostrar cada una en una tarjeta -->
+                        <div *ngFor="let oferta of ofertas" class="col-md-4 mb-4">
+                          <div class="b-integration-card">
                             <div class="margin-bottom-08">
-                                <div class="paragraph-large b-text-weight-semibold">
-                                    Google
-                                </div>
+                              <div class="paragraph-large b-text-weight-semibold">
+                                {{ oferta.titulo }} <!-- Asegúrate de que la clave coincide con tu estructura de datos -->
+                              </div>
                             </div>
                             <div class="b-paragraph-small b-text-color-gray-700">
-                                <span class="b-span-primary">
-                                    Ciberseguridad   
-                                </span>
-                                <ul>
-                                    <li>Proyecto: Desarrollo de Software</li>
-                                    <li>Descripción: Proyecto de desarrollo de software innovador</li>
-                                    <li>Fecha de Inicio: 2024-06-01</li>
-                                    <li>Requisitos: Conocimientos en Java, Python</li>
-                                </ul>   
+                              <span class="b-span-primary">
+                                {{ oferta.nombreEmpresa }} <!-- Asegúrate de que la clave coincide con tu estructura de datos -->
+                              </span>
+                              <ul>
+                                <li>Ciudad: {{ oferta.ciudad }}</li>
+                                <li>Descripción: {{ oferta.descripcion }}</li>
+                                <li>Carrera: {{ oferta.carrera }}</li>
+                                <li>Sueldo: {{ oferta.sueldo }}</li>
+                                <li>Habilidades Requeridas:
+                                  <ul>
+                                    <li *ngFor="let habilidad of oferta.habilidades">{{ habilidad.nombreHabilidad }}</li>
+                                  </ul>
+                                </li>
+                              </ul>
                             </div>
                             <div class="b-integration-button-wrapper">
-                                <a href="#" class="b-button-default-icon w-inline-block">
-                                    <div>
-                                        Ver más
-                                    </div>
-                                    <div class="b-icon-xxsmall w-embed">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                                        viewBox="0 0 24 24" fill="none">
-                                        <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
-                                        Z" fill="currentColor"></path>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="w-node-_3d8bdcc6-e518-fc33-b5be-4e029ada4b65-c152b223" class="b-integration-card">
-                        <div class="b-integration-icon-outline">
-                            <img src="./img/bcp.png" loading="lazy" alt="">
-                        </div>
-                        <div class="margin-bottom-08">
-                            <div class="paragraph-large b-text-weight-semibold">
-                                BCP
-                            </div>
-                        </div>
-                        <div class="b-paragraph-small b-text-color-gray-700">
-                            <span class="b-span-primary">
-                                Ciberseguridad                      
-                            </span>
-                            <ul>
-                                <li>Proyecto: Desarrollo de Software</li>
-                                <li>Descripción: Proyecto de desarrollo de software innovador</li>
-                                <li>Fecha de Inicio: 2024-06-01</li>
-                                <li>Requisitos: Conocimientos en Java, Python</li>
-                            </ul>                                
-                        </div>
-                        <div class="b-integration-button-wrapper">
-                            <a href="#" class="b-button-default-icon w-inline-block">
+                              <a href="#" class="b-button-default-icon w-inline-block">
                                 <div>
-                                    Ver más
+                                  Ver más
                                 </div>
                                 <div class="b-icon-xxsmall w-embed">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
-                                    viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
-                                        Z" fill="currentColor"></path>
-                                </svg>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" fill="currentColor"></path>
+                                  </svg>
+                                </div>
+                              </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div id="w-node-e19eacd8-c566-bf55-9287-141cab341c87-c152b223" class="b-integration-card">
-                    <div class="b-integration-icon-outline">
-                        <img src="./img/bbva.jpg" 
-                        loading="lazy" alt="">
-                    </div>
-                    <div class="margin-bottom-08">
-                        <div class="paragraph-large b-text-weight-semibold">
-                           BBVA
+                          </div>
                         </div>
-                    </div>
-                    <div class="b-paragraph-small b-text-color-gray-700">
-                        <span class="b-span-primary">
-                            Ingeniería de Sistemas
-                        </span>
-                        <ul>
-                            <li>Proyecto: Investigación de Mercado</li>
-                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
-                            <li>Fecha de Inicio: 2024-07-01</li>
-                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
-                        </ul>  
-                    </div>
-                    <div class="b-integration-button-wrapper">
-                        <a href="#" class="b-button-default-icon w-inline-block">
-                            <div>
-                                Ver más
-                            </div>
-                            <div class="b-icon-xxsmall w-embed">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
-                                        Z" fill="currentColor"></path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
+                      </div>
                 </div>
-                <div id="w-node-_6c70e26c-4c30-b3ee-05bf-1e81bcb38357-c152b223" class="b-integration-card">
-                    <div class="b-integration-icon-outline">
-                        <img src="./img/microsoft.png" 
-                        loading="lazy" alt="">
-                    </div>
-                    <div class="margin-bottom-08">
-                        <div class="paragraph-large b-text-weight-semibold">
-                            Microsoft
-                        </div>
-                    </div>
-                    <div class="b-paragraph-small b-text-color-gray-700">
-                        <span class="b-span-primary">
-                            Ingeniería de Sistemas                             
-                        </span>
-                        <ul>
-                            <li>Proyecto: Investigación de Mercado</li>
-                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
-                            <li>Fecha de Inicio: 2024-07-01</li>
-                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
-                        </ul>                           
-                    </div>
-                    <div class="b-integration-button-wrapper">
-                        <a href="#" class="b-button-default-icon w-inline-block">
-                            <div>
-                                Ver más
-                            </div>
-                            <div class="b-icon-xxsmall w-embed">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                        17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187
-                                        Z" fill="currentColor"></path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div id="w-node-_6330e86f-f6c6-4699-0f93-d1a44b0502c0-c152b223" class="b-integration-card">
-                    <div class="b-integration-icon-outline">
-                        <img src="./img/amazon.png" 
-                        loading="lazy" alt="">
-                    </div>
-                    <div class="margin-bottom-08">
-                        <div class="paragraph-large b-text-weight-semibold">
-                            Amazon
-                        </div>
-                    </div>
-                    <div class="b-paragraph-small b-text-color-gray-700">
-                        <span class="b-span-primary">
-                            Ciberseguridad
-                        </span>
-                        <ul>
-                            <li>Proyecto: Desarrollo de Software</li>
-                            <li>Descripción: Proyecto de desarrollo de software innovador</li>
-                            <li>Fecha de Inicio: 2024-06-01</li>
-                            <li>Requisitos: Conocimientos en Java, Python</li>
-                        </ul>  
-                    </div>
-                    <div class="b-integration-button-wrapper">
-                        <a href="#" class="b-button-default-icon w-inline-block">
-                            <div>
-                                Ver más
-                            </div>
-                            <div class="b-icon-xxsmall w-embed">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                    17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" 
-                                    fill="currentColor"></path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div id="w-node-_90e335da-3303-6969-a26c-e480e5d2a856-c152b223" class="b-integration-card">
-                    <div class="b-integration-icon-outline">
-                        <img src="./img/ebay.png" 
-                        loading="lazy" alt="">
-                    </div>
-                    <div class="margin-bottom-08">
-                        <div class="paragraph-large b-text-weight-semibold">
-                            eBay
-                        </div>
-                    </div>
-                    <div class="b-paragraph-small b-text-color-gray-700">
-                        <span class="b-span-primary">
-                            Ingeniería de Sistemas
-                        </span>
-                        <ul>
-                            <li>Proyecto: Investigación de Mercado</li>
-                            <li>Descripción: Análisis y evaluación de mercados emergentes...</li>
-                            <li>Fecha de Inicio: 2024-07-01</li>
-                            <li>Requisitos: Conocimientos en análisis de datos, Excel</li>
-                        </ul>  
-                    </div>
-                    <div class="b-integration-button-wrapper">
-                        <a href="#" class="b-button-default-icon w-inline-block">
-                            <div>
-                                Ver más
-                            </div>
-                            <div class="b-icon-xxsmall w-embed">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 
-                                    17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" 
-                                    fill="currentColor"></path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+              
+                <!-- Paginación -->
+                <nav aria-label="Paginación">
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item" [class.disabled]="currentPage === 1">
+                      <a class="page-link" (click)="cambiarPagina(currentPage - 1)" aria-label="Anterior">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+                      <a class="page-link" (click)="cambiarPagina(i + 1)">{{ i + 1 }}</a>
+                    </li>
+                    <li class="page-item" [class.disabled]="currentPage === totalPages">
+                      <a class="page-link" (click)="cambiarPagina(currentPage + 1)" aria-label="Siguiente">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
         </div>
     </div>
-</div>

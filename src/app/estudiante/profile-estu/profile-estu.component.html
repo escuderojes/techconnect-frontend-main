@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil- Estudiante</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
+<div class="container-body">
     <header>
         <ul class="nav nav-tabs" id="nav">
             <li class="nav-item">
@@ -16,11 +7,11 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
         </ul>
         <h1>Bienvenido, Nombre del Estudiante!</h1>
     </header>
-<!-- boton para guardar los datos en la bd, hay que cambiar la ruta xd -->
+
 <div class="container-sm">
     <div class="container-sm" id="img">
         <img id="selectedImage"
-        src="https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png"
+        [src]="getImageUrl()"
             class="img-thumbnail" alt="Imagen del estudiante">
     </div>
 
@@ -28,21 +19,27 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
         <!-- Aquí se mostrarán los datos obtenidos de la base de datos -->
         <h2>Sobre mi</h2>
         <textarea name="bio" id="bio" rows="10" placeholder="Describa su trayectoria"
-            class="formbold-form-input" readonly> Bio del Estudiante</textarea>
+            class="formbold-form-input" readonly> {{estudiante?.bio || 'No hay información'}} </textarea>
+
+
     </div>
    
     <div class="col-md-6" id="dataes">
         <!-- Aquí se mostrarán los datos obtenidos de la base de datos -->
         <h2>Datos del Estudiante</h2>
-            <p><strong>Nombres :</strong> Nombres del estudiante</p>
-            <p><strong>Apellidos :</strong> Apellidos del estudiante</p>
-            <p><strong>Email:</strong> ejemplocorreo.com</p>
-            <p><strong>Telefono :</strong> 123-456-789 </p>
-            <p><strong>Carrera:</strong> Carrera del estudiante</p>
-            <p>No se encontraron datos del estudiante.</p>
-        <!-- boton para editar datos -->
-        <a href="#"><button type="button" class="btn btn-primary" id="btndata">Registrar Datos</button></a>
-        <a href="#" ><button type="button" class="btn btn-primary" id="btndata">Actualizar Datos</button></a>
+            <p><strong>Nombres :</strong> {{estudiante?.nombres || 'No hay información'}}</p>
+            <p><strong>Apellidos :</strong>{{estudiante?.apellidos || 'No hay información'}}</p>
+            <p><strong>Email:</strong> {{estudiante?.correo || 'No hay información'}}</p>
+            <p><strong>Telefono :</strong>{{estudiante?.telefono || 'No hay información'}}</p>
+            <p><strong>Carrera:</strong> {{estudiante?.carrera || 'No hay información'}}</p>
+
+            <button type="button" class="btn btn-primary" id="btndata" (click)="onButtonClick()">
+            {{ estudiante? 'Actualizar Datos' : 'Registrar Datos' }}
+            </button>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+            </div>
     </div>
 
     <div class="container-sm" id="datah">
@@ -137,7 +134,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
             </li>
         </ul>
         <!-- boton para editar -->
-        <a [routerLink]="['/estudiante/inser-skill-estu']"><button type="button" class="btn btn-primary" id="btndatah">Editar
+        <a [routerLink]="['/estudiante/inser-skill']"><button type="button" class="btn btn-primary" id="btndatah">Editar
             Habilidades</button></a>
     </div>
 </div>
@@ -147,23 +144,4 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-<!-- codigo para obtener la imagen -->
-<script>
-    document.getElementById('inputGroupFileAddon04').addEventListener('click', function () {
-        const input = document.getElementById('inputGroupFile04');
-        const img = document.getElementById('selectedImage');
-        const file = input.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                img.src = e.target.result;
-            }
-            reader.readAsDataURL(file);
-        } else {
-            alert('Por favor, selecciona una imagen primero.');
-        }
-    });
-</script>
-</body>
-</html>
+</div>
