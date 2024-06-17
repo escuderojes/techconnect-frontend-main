@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <p class="logo">Techconnect</p>
+                <img class="logo-img" src="assets/UCV-icono.png" alt="Logo">
+            </div>
+            <nav>
+                <a href="#">Ver perfil</a>
+                <a href="#">Cerrar Sesión</a>    
+            </nav>
+        </div>
+    </header>
+    
+    <section class="seccion" id="sec-3d32">
+        <div class="container hoja">
+            <div class="columna izquierda">
+                <h2 class="texto-encabezado">Nombre de Empresa</h2>
+                <img class="imagen" src="assets/empresa.png" alt="Imagen de empresa">
+                <button type="button" class="btn">Insertar foto</button>
+            </div>
+            <div class="columna derecha">
+                <h2 class="texto-encabezado gris">Registro de Oferta Laboral</h2>
+                <form action="https://forms.nicepagesrv.com/v2/form/process" class="formulario">
+                    <input type="hidden" id="siteId" name="siteId" value="{siteId}">
+                    <input type="hidden" id="pageId" name="pageId" value="{pageId}">
+                    <div class="formulario-grupo">
+                        <label for="nombre-empresa" class="oculto">Nombre de la Empresa</label>
+                        <input type="text" placeholder="Ingrese el nombre de la oferta laboral" id="nombre-empresa" name="name" class="input" required>
+                    </div>
+                    <div class="formulario-grupo">
+                        <label for="carrera" class="label">Ingrese la carrera solicitada:</label>
+                        <div class="checkbox-grupo">
+                            <div class="checkbox">
+                                <input id="ciberseguridad" type="checkbox" name="checkbox[]" value="Ciberseguridad" checked>
+                                <label for="ciberseguridad">Ciberseguridad</label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="ingenieria" type="checkbox" name="checkbox[]" value="Ingeniería de Sistemas">
+                                <label for="ingenieria">Ingeniería de Sistemas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formulario-grupo">
+                        <label for="descripcion" class="oculto">Descripción</label>
+                        <textarea placeholder="Ingrese la descripción" rows="5" id="descripcion" name="message" class="input" required></textarea>
+                    </div>
+                    <div class="formulario-grupo">
+                        <label for="fecha-inicio" class="oculto">Fecha de inicio</label>
+                        <input type="date" placeholder="Ingrese la fecha de inicio del proyecto" id="fecha-inicio" name="fecha-inicio" class="input" required>
+                    </div>
+                    <div class="formulario-grupo">
+                        <label class="label">Habilidades requeridas:</label>
+                        <div class="checkbox-grupo">
+                            <div class="checkbox">
+                                <input id="phyton" type="checkbox" name="checkbox[]" value="Phyton" checked>
+                                <label for="phyton">Phyton</label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="java" type="checkbox" name="checkbox[]" value="Java">
+                                <label for="java">Java</label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="analisis-datos" type="checkbox" name="checkbox[]" value="Análisis de datos">
+                                <label for="analisis-datos">Análisis de datos</label>
+                            </div>
+                            <div class="checkbox">
+                                <input id="javascript" type="checkbox" name="checkbox[]" value="JavaScript">
+                                <label for="javascript">JavaScript</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formulario-grupo">
+                        <button type="submit" class="btn enviar">Enviar</button>
+                    </div>
+                    <div class="mensaje-enviado">
+                        ¡Gracias! Tu mensaje ha sido enviado.
+                    </div>
+                    <div class="mensaje-error">
+                        No se puede enviar su mensaje. Corrija los errores y vuelva a intentarlo.
+                    </div>
+                    <input type="hidden" value="" name="recaptchaResponse">
+                    <input type="hidden" name="formServices" value="714bf000-ab12-6ce9-4371-9167da3525ca">
+                    <input type="hidden" name="siteKey" value="6LetPRgiAAAAAGX121nVdkYGTN-RfCXh4wAlbDFh">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <ul class="contacto">
+                <li><strong>Contacto</strong></li>
+                <li>Whatsapp: <a href="https://wa.me/51926980976" target="_blank">926980976</a></li>
+                <li>Gmail: <a href="mailto:jeescuderos@ucvvirtual.edu.pe">jeescuderos&#64;ucvvirtual.edu.pe</a></li>
+                <li>Conoce nuestros campus</li>
+            </ul>
+            <div class="logo">
+                <img src="assets/logo.png" alt="logo de la universidad" style="height: 60px;">
+            </div>
+        </div>
+        <p style="text-align: center;">&#64;Todos Los Derechos reservados - Universidad César Vallejo</p>
+    </footer>
+    
+</body>
+</html>

@@ -15,7 +15,11 @@ export const routes: Routes = [
         loadChildren: () => import('./home/home.routes').then(m => m.HOME_ROUTES)
     },
     {
-        path: '',
+        path: 'estudiante',
         loadChildren: () => import('./estudiante/estudiante.routes').then(m => m.ESTUDIANTE_ROUTES)
+    },
+    {
+        path: 'reclutador',
+        loadChildren: () => import('./reclutador/reclutador.routes').then(m => m.RECLUTADOR_ROUTES)
     }
 ];
