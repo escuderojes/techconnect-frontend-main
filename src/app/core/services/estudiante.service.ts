@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -36,7 +36,7 @@ export class EstudianteService {
   }
   //Filtrar ofertas por habilidades
   filtrarOfertasporHabilidades(habilidades:any): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/filtrar_oferta_por_habilidades`,habilidades);
+    return this.http.post<any>(`${this.apiUrl}/estudiante/ofertas/filtrar`,{habilidades:habilidades});
   }
   //Asociar Habilidades con los estudiantes
   asociarHabilidadesEstudiante(habilidades:any): Observable<any>{
@@ -48,5 +48,19 @@ export class EstudianteService {
     return this.http.post(`${this.apiUrl}/postular/${ofertaId}`,{});
   }
 
+  //Obtener las habilidades
+  getSkills(): Observable<any>{
+    const token = localStorage.getItem('auth_token');
+   const role = localStorage.getItem('role');
+
+   let headers = new HttpHeaders({
+     'Authorization': 'Bearer ' + token
+   });
+
+   if (role) {
+     headers = headers.append('Role', role);
+   }
+   return this.http.get(`${this.apiUrl}/habilidadesEstu`, { headers });
+  }
 
 }

@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit{
             case 'reclutador':
               this.router.navigate(['reclutador/home.reclutador']);
               break;
-            case 'admin':
-              this.router.navigate(['/home.admin']);
+            case 'administrador':
+              this.router.navigate(['admin/dashboard']);
               break;
             default:
               console.error('Unexpected user role:', userRole);

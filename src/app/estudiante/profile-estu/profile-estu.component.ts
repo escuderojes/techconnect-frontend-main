@@ -53,11 +53,9 @@ export class ProfileEstuComponent implements OnInit{
   }
 
   onButtonClick(): void{
-    if(this.estudiante){
-      this.router.navigate(['inser-data', this.estudianteId, 'Actualizar Datos']);
-    } else{
-      this.router.navigate(['inser-data', this.estudianteId, 'Insertar Datos'])
-    }
+    const action= this.estudiante ? 'Actualizar' : 'Insertar';
+    console.log('Navigate to:',`estudiante/inser-data/${this.estudianteId}/${action}` )
+   this.router.navigate([`estudiante/inser-data/${this.estudianteId}/${action}`]);
   }
 
   getImageUrl(): string {

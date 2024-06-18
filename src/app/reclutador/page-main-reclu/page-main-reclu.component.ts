@@ -3,11 +3,13 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { ReclutadorService } from '../../core/services/reclutador.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-page-main-reclu',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './page-main-reclu.component.html',
   styleUrl: './page-main-reclu.component.css'
 })
@@ -18,6 +20,8 @@ export class PageMainRecluComponent implements OnInit{
   totalPages: number=1;
   errorMessage: string | null=null;
   reclutador: any = {};
+  skills: any[] = [];
+  habilidadesSeleccionadas: number[] = [];
 
   constructor(
     private authService:AuthService, 
@@ -27,17 +31,29 @@ export class PageMainRecluComponent implements OnInit{
   ngOnInit(): void {
     this.cargarEstudiantes(this.currentPage);
     this.cargarDatosReclutador();
+    this.cargarSkills();
   }
 
   loading:boolean=false;
+
+  cargarSkills(): void {
+    this.reclutadorService.getSkills().subscribe({
+      next: (response) => {
+        this.skills = response.habilidades; // Asigna las habilidades recibidas del servicio
+      },
+      error: (error) => {
+        console.error('Error al cargar las habilidades', error);
+      }
+    });
+  }
 
   cargarEstudiantes(page:number): void {
     this.loading=true;
     this.reclutadorService.obtenerEstudiantesPaginados(page).subscribe({
       next: (response) => {
         this.estudiantes = response.data;
-        this.currentPage = response.currentPage;
-        this.totalPages = response.last_page;;
+        this.currentPage = response.current_page;
+        this.totalPages = response.last_page;
         this.loading=false;
       },
       error: (error) => {
@@ -90,5 +106,24 @@ export class PageMainRecluComponent implements OnInit{
     });
   }
 
+  buscarEstudiantesPorHabilidades(): void {
+    this.reclutadorService.filtrarEstudiantesPorHabilidades(this.habilidadesSeleccionadas).subscribe({
+      next: (response) => {
+        this.estudiantes = response.data;
+        this.currentPage = response.current_page;
+        this.totalPages = response.last_page;
+      }
+    });
+  }
+
+  // Método para manejar cambios en los checkboxes de habilidades
+  onSkillChange(skillId: number): void {
+    const index = this.habilidadesSeleccionadas.indexOf(skillId);
+    if (index === -1) {
+      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
+    } else {
+      this.habilidadesSeleccionadas.splice(index, 1); // Quitar habilidad seleccionada si ya está seleccionada
+    }
+  }
   
 }

@@ -13,7 +13,8 @@
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Ultimo acceso : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Salir</a>
+font-size: 16px;"> Ultimo acceso : 30 May 2014 &nbsp; 
+<a href="#" class="btn btn-danger square-btn-adjust" (click)="onLogout($event)">Salir</a>
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -44,7 +45,7 @@ font-size: 16px;"> Ultimo acceso : 30 May 2014 &nbsp; <a href="#" class="btn btn
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Table Estudiantes</h2>
+                        <h2>Tabla Estudiantes</h2>
                         <h5>Bienvenido Admin, me alegra verte de nuevo. </h5>
 
                     </div>
@@ -66,189 +67,22 @@ font-size: 16px;"> Ultimo acceso : 30 May 2014 &nbsp; <a href="#" class="btn btn
                                         <thead>
                                             <tr>
                                                 <th>Nombres</th>
-                                                <th>Apellido Paterno</th>
-                                                <th>Apellido Materno</th>
+                                                <th>Apellidos</th>
+                                                <th>Genero</th>
                                                 <th>Carrera</th>
-                                                <th>Email</th>
+                                                <th>Correo</th>
+                                                <th>Telefono</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>Jesus</td>
-                                                <td>Escudero</td>
-                                                <td>Santillan</td>
-                                                <td class="center">Ingenieria de Sistemas</td>
-                                                <td class="center">esc&#64;gmail.com</td>
-                                                <td>
-                                                    <button class="btn btn-primary"><i class="fa fa-edit "></i>
-                                                        Editar</button>
-                                                    <button class="btn btn-danger"><i class="fa fa-pencil"></i>
-                                                        Eliminar</button>
-                                                </td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>Elmer</td>
-                                                <td>Jimenez</td>
-                                                <td>Armas</td>
-                                                <td class="center">Ciberseguridad</td>
-                                                <td class="center">JEZ&#64;gmail.com</td>
+                                            <tr class="odd gradeX" *ngFor="let estudiante of estudiantes">
+                                                <td>{{estudiante.nombres}}</td>
+                                                <td>{{estudiante.apellidos}}</td>
+                                                <td>{{estudiante.genero}}</td>
+                                                <td class="center">{{estudiante.carrera}}</td>
+                                                <td class="center">{{estudiante.correo}}</td>
+                                                <td>{{estudiante.telefono}}</td>
                                                 <td>
                                                     <button class="btn btn-primary"><i class="fa fa-edit "></i>
                                                         Editar</button>

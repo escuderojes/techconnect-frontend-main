@@ -16,14 +16,17 @@ export class RegDataRecluComponent implements OnInit {
   reclutador: any = {};
   reclutadorId: string='';
   errorMessage: string|null=null;
+  selectedFile: File | null = null;
 
   constructor(
     private reclutadorService: ReclutadorService, 
     private router:Router,
     private route:ActivatedRoute
   ) { }
+
   ngOnInit(): void {
-    this.reclutadorId = this.route.snapshot.paramMap.get('id') ?? '';
+    this.reclutadorId = this.route.snapshot.paramMap.get('reclutadorId') ?? '';
+    console.log('Reclutador ID:', this.reclutadorId)
     if(this.reclutadorId){
       this.cargarDatos();
     }else{
@@ -34,9 +37,16 @@ export class RegDataRecluComponent implements OnInit {
   cargarDatos(){
     this.reclutadorService.getReclutador(this.reclutadorId).subscribe({
       next: (response) => {
+        console.log('Respuesta del servidor: ', response)
         this.errorMessage = null;
-        this.reclutador = response;
-        
+        this.reclutador = response.reclutador; 
+              // Actualizar la imagen del logo si existe
+      if (this.reclutador.logo) {
+        const logoUrl = `http://localhost:8000/imagesreclutador/${this.reclutador.logo}`;
+        const selectedImage = document.getElementById('selectedImage') as HTMLImageElement;
+        selectedImage.src = logoUrl;
+      }
+
       },
       error: (error: Error) => {
         console.error('Error al cargar los datos del reclutador',error);
@@ -50,7 +60,7 @@ export class RegDataRecluComponent implements OnInit {
       next: (response) =>{
         this.errorMessage = null;
         console.log('Reclutador insertado con éxito', response);
-        this.router.navigate(['/home.estudiante']);
+        this.router.navigate(['/home.reclutador']);
       },
       error: (error: Error) =>{
         console.log('Error al insertar reclutador', error);
@@ -61,19 +71,32 @@ export class RegDataRecluComponent implements OnInit {
 
   actualizarReclutador(){
     if(this.reclutadorId){
+        const formData = new FormData();
+
+        // Agregar archivo de logo si está presente
+        if (this.selectedFile) {
+            formData.append('logo', this.selectedFile);
+        }
+
+        // Agregar otros campos del reclutador
+        for (const key in this.reclutador) {
+            if (this.reclutador.hasOwnProperty(key) && key !== 'logo') {
+                formData.append(key, this.reclutador[key]);
+            }
+        }
       this.reclutadorService.actualizarReclutador(this.reclutadorId,this.reclutador).subscribe({
         next: (response) => {
           this.errorMessage = null;
           console.log('Reclutador actualizado con exito', response)
-          this.router.navigate(['/reclutador/profile']);
+          this.router.navigate(['reclutador//home.reclutador']);
         },
         error: (error: Error) => {
           console.error('Error al actualizar el reclutador', error)
           this.errorMessage = error.message;
         }
       });
-    }
   }
+}
 
   onSubmit(){
     if(this.reclutadorId){
@@ -92,7 +115,7 @@ export class RegDataRecluComponent implements OnInit {
 
       // Adjuntar otros campos del reclutador
       for (const key in this.reclutador) {
-        if (this.reclutador.hasOwnProperty(key)) {
+        if (this.reclutador.hasOwnProperty(key) && key !== 'logo') {
           formData.append(key, this.reclutador[key]);
         }
       }
@@ -123,6 +146,20 @@ export class RegDataRecluComponent implements OnInit {
           }
         });
       }
+    }
+  }
+
+  logoSelect(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const selectedImage = document.getElementById('selectedImage') as HTMLImageElement;
+        selectedImage.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert('Por favor, selecciona una imagen primero.');
     }
   }
 }

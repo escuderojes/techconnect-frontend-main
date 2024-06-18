@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -16,7 +16,7 @@ export class ReclutadorService {
   }
   //Actualizar Datos del Reclutador
   actualizarReclutador(id: string,reclutador: any): Observable<any>{
-    return this.http.put(`${this.apiUrl}/reclutador/${id}`, reclutador);
+    return this.http.patch(`${this.apiUrl}/reclutador/${id}`, reclutador);
   }
   reclutadorLogueado():Observable<any>{
     return this.http.get(`${this.apiUrl}/reclutador`);
@@ -26,8 +26,8 @@ export class ReclutadorService {
     return this.http.get(`${this.apiUrl}/reclutador/${id}`);
   }
   //Método para filtrar estudiantes por habilidades
-  filtrarEstudiantesPorHabilidades(habilidades: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/reclutador/estudiantes/filtrar`, habilidades);
+  filtrarEstudiantesPorHabilidades(habilidades: number[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/reclutador/estudiantes/filtrar`, {habilidades:habilidades});
   }
   //Método para insertar una nueva oferta
   insertarOferta(oferta: any): Observable<any> {
@@ -42,5 +42,18 @@ export class ReclutadorService {
   obtenerEstudiantesPaginados(page: number = 1): Observable<any> {
     return this.http.get(`${this.apiUrl}/reclutador/estudiantes?page=${page}`);
   }
+  //Obtener las habilidades
+  getSkills(): Observable<any>{
+   const token = localStorage.getItem('auth_token');
+   const role = localStorage.getItem('role');
 
+   let headers = new HttpHeaders({
+     'Authorization': 'Bearer ' + token
+   });
+
+   if (role) {
+     headers = headers.append('Role', role);
+   }
+   return this.http.get(`${this.apiUrl}/habilidades`, { headers });
+  }
 }

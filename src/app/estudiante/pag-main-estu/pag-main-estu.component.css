@@ -7,30 +7,133 @@
 }
 
 .header {
-    display: flex; 
-    align-items: center; 
-    justify-content: flex-start;
-    padding: 25px;
-    background-color: #142af1d0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0056b3; /* Cambiar el color de fondo a un tono de azul */
+    color: white;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten y se envuelvan en líneas nuevas si es necesario */
 }
 
 .search-bar {
-    margin-left: 25px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
 }
 .search-bar input {
-    padding: 20px;
-    margin-right: 25px;
+    padding: 10px;
+    margin-right: 10px;
     border: none;
     border-radius: 5px;
-    width: 850px;
+    width: 100%;
+    max-width: 850px;
 }
 
-.filter select {
-    padding: 20px;
-    margin-right: 25px;
+.filter {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.filter h6 {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+.filter form {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1;
+}
+
+.filter:hover form {
+    display: block;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.form-check input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    color: black;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.user-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-input-container input {
+    padding: 10px;
+    margin-left: 10px;
     border: none;
     border-radius: 5px;
-    width: 210px;
+    color: black;
+}
+
+.user-input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.user-input-container input::placeholder {
+    font-size: 1.1em;
+    color: black;
+}
+
+.user-input-container .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.user-input-container:hover .dropdown {
+    display: block;
+}
+
+.user-input-container .dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.user-input-container .dropdown a:hover {
+    background-color: #f1f1f1;
 }
 
 .user-input-container {
@@ -65,8 +168,9 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 5px;
+    top: 100%;
+    left: 0;
 }
-
 .dropdown a {
     color: black;
     padding: 12px 16px;
@@ -369,10 +473,6 @@ a:-webkit-any-link {
         width: 400px; /* Further reduce width for smaller screens */
     }
 
-    .filter select {
-        width: 150px; /* Further reduce width for smaller screens */
-    }
-
     .b-integration-grid {
         grid-template-columns: 1fr 1fr; /* Change to 2 columns */
     }
@@ -384,9 +484,17 @@ a:-webkit-any-link {
         margin-bottom: 10px; /* Add margin for spacing */
     }
 
-    .filter select {
+    .filter form {
+        position: static; /* Position static for better alignment on mobile */
+        width: 100%;
+        max-width: none; /* Remove max-width */
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
         width: 100%; /* Full width for mobile */
-        margin-bottom: 10px; /* Add margin for spacing */
+        margin-bottom: 10px;
     }
 
     .b-integration-grid {
@@ -425,5 +533,20 @@ a:-webkit-any-link {
 
     .b-integration-card {
         padding: 16px; /* Reduce padding for mobile */
+    }
+    .user-input-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-input-container input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .user-input-container i {
+        left: 10px;
+        top: 10px;
+        transform: none;
     }
 }

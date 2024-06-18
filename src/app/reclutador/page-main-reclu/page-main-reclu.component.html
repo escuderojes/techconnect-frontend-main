@@ -39,183 +39,32 @@
                         <!-- filtros -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                                id="filtrohab">Programación</a>
+                                id="filtrohab">Habilidades</a>
                             <div class="dropdown-menu">
                                 <!-- titulo de filtro -->
                                 <h6 class="dropdown-header">Wow ¿Son tantas?</h6>
                                 <form>
                                     <!-- habilidades filtro -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            JS
+                                    <div class="form-check" *ngFor="let skill of skills">
+                                        <input class="form-check-input" type="checkbox" id="habilidad{{skill.id}}"
+                                            [value]="skill.id" [(ngModel)]="habilidadesSeleccionadas" (change)="onSkillChange(skill.id)">
+                                        <label class="form-check-label" for="habilidad{{skill.id}}">
+                                            {{skill.nombreHabilidad}}
                                         </label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Python
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Java
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            C#
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            C++
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            PHP
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            TypeScript
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Swift
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Ruby
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Kotlin
-                                        </label>
-                                    </div>
-                                    <!-- Repite estos bloques para los 10 lenguajes de programación más utilizados -->
                                 </form>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="filtrobd">Base de
-                                Datos</a>
-                            <div class="dropdown-menu">
-                                <!-- titulo de filtro -->
-                                <h6 class="dropdown-header">drop database</h6>
-                                <form>
-                                    <!-- habilidades filtro -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            MySQL
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            PostgreSQL
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            SQLServer
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Oracle
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            SQLite
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            MongoBD
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Redis
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            AmazonRDS
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            Firebase
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="lenguaje1"
-                                            value="lenguaje1">
-                                        <label class="form-check-label" for="lenguaje1">
-                                            GoogleCloudSQL
-                                        </label>
-                                    </div>
-                                    <!-- Repite estos bloques para los 10 lenguajes de programación más utilizados -->
-                                </form>
-                            </div>
-                        </div>
-
-                        <form class="d-flex">
+                        <form class="d-flex" (submit)="buscarEstudiantesPorHabilidades()">
                             <input class="form-control me-2" type="search"
                                 placeholder="¿Buscas a alguien en especifico?" aria-label="Search" id="src-bar">
                             <button class="btn btn-outline-success" type="submit" id="btn-search">Buscar</button>
                         </form>
-
                     </div>
-
                 </div>
-
             </nav>
-
         </div>
-        <a [routerLink]="['/reclutador/profile', reclutador.id]" class="nav-link" id="nav-perfil">Ver perfil</a>
+        <a [routerLink]="['/reclutador/profile/', reclutador.id]" class="nav-link" id="nav-perfil">Ver perfil</a>
         <a href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
         <a href="#" class="nav-link" id="nav-mess">Postulaciones <span class="badge bg-secondary"
                 id="mess-span">4</span></a>
@@ -245,6 +94,9 @@
                     <h3>{{ estudiantes.nombres }}</h3>
                     <h4>{{ estudiantes.carrera }}</h4>
                     <p>{{ estudiantes.bio }}</p>
+                    <ul>
+                        <li *ngFor="let habilidad of estudiantes.habilidades">{{ habilidad.nombreHabilidad }}</li>
+                      </ul>
                 </div>
                 <div class="contact">
                     <a href="#">Contactar</a>

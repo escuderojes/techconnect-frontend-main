@@ -54,11 +54,9 @@ export class ProfileRecluComponent implements OnInit{
   }
 
   onButtonClick(): void{
-    if(this.reclutador){
-      this.router.navigate(['register/data', this.reclutadorId, 'Actualizar Datos']);
-    } else{
-      this.router.navigate(['register/data', this.reclutadorId, 'Insertar Datos'])
-    }
+    const action=this.reclutador ? 'Actualizar' : 'Insertar';
+    console.log('Navigate to: ', `reclutador/register/data/${this.reclutadorId}/${action}`); 
+    this.router.navigate([`reclutador/register/data/${this.reclutadorId}/${action}`]);
   }
 
   getImageUrl(): string {

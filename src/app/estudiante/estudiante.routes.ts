@@ -9,6 +9,6 @@ import { EstudianteGuard } from '../guards/estudiante-guard.guard';
 export const ESTUDIANTE_ROUTES: Routes = [
     { path: 'home.estudiante', component: PagMainEstuComponent, canActivate: [AuthGuard,EstudianteGuard] },
     { path: 'profile/:id', component: ProfileEstuComponent, canActivate: [AuthGuard,EstudianteGuard] },
-    { path: 'inser-data', component: InserDataEstuComponent, canActivate: [AuthGuard,EstudianteGuard]},
+    { path: 'inser-data/:estudianteId/:action', component: InserDataEstuComponent, canActivate: [AuthGuard,EstudianteGuard]},
     { path: 'inser-skill', component: InserSkillEstuComponent, canActivate: [AuthGuard,EstudianteGuard]}
 ];

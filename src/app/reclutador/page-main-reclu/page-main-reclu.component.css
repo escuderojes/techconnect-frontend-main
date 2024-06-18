@@ -129,12 +129,14 @@ nav a {
 .card {
     position: relative;
     width: 300px;
-    height: 400px;
+    height: 450px;
     background: #fff;
     border-radius: 5px;
     overflow: hidden;
     transition: .5s;
     margin: 15px 20px;
+    display: flex; /* Usar Flexbox */
+    flex-direction: column; /* Direccion de columna para flexbox */
 }
 
 .card:hover {
@@ -178,10 +180,12 @@ nav a {
 
 
 .card .description {
+    flex: 1; /* Permitir que esta sección crezca para llenar el espacio */
     height: 200px;
-    padding: 40px 20px 20px 20px;
+    padding: 60px 10px 10px 10px;
     border-bottom: solid 1px rgba(6, 74, 76, .18);
     text-align: center;
+    overflow-y: auto; /* Añadir scroll si el contenido es extenso */
 }
 
 .card .description h3 {
@@ -193,10 +197,25 @@ nav a {
 }
 
 .card .description p {
-    margin-top: 20px;
+    margin-top: 1px;
     font-size: 15px;
 }
 
+/* Estilos para la lista de habilidades */
+.card .description ul {
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+.card .description ul li {
+    background-color: #f0f4f5; /* Fondo suave para cada habilidad */
+    color: #05383a; /* Color de texto */
+    padding: 5px 10px; /* Padding para las habilidades */
+    margin: 5px 0; /* Separación entre habilidades */
+    border-radius: 3px; /* Bordes redondeados */
+    display: inline-block; /* Mostrar las habilidades en línea */
+}
 
 .card .contact {
     width: 100%;
@@ -204,6 +223,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: auto; /* Empujar esta sección hacia el fondo de la tarjeta */
 }
 
 .card .contact a {

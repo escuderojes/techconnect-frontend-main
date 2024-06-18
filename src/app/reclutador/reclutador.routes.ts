@@ -8,5 +8,5 @@ import { AuthGuard } from '../guards/auth.guard';
 export const RECLUTADOR_ROUTES: Routes = [
     { path: 'home.reclutador', component: PageMainRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard]},
     { path: 'profile/:id', component: ProfileRecluComponent, canActivate: [AuthGuard,ReclutadorGuard] },
-    { path: 'register/data', component: RegDataRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard] },
+    { path: 'register/data/:reclutadorId/:action', component: RegDataRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard] },
 ];

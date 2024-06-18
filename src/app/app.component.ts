@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterEstuComponent } from './auth/register-estu/register-estu.component';
 import { RegisterRecluComponent } from './auth/register-reclu/register-reclu.component';
@@ -20,4 +20,7 @@ import { InserDataEstuComponent } from './estudiante/inser-data-estu/inser-data-
 })
 export class AppComponent {
   title = 'techconnect-fronted-main';
+  constructor(router: Router){
+    console.log('Registered Routers:',router.config)
+  }
 }

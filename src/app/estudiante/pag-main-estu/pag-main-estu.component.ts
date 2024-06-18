@@ -3,11 +3,12 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { EstudianteService } from '../../core/services/estudiante.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pag-main-estu',
   standalone: true,
-  imports: [RouterLink, CommonModule] ,
+  imports: [RouterLink, CommonModule, FormsModule] ,
   templateUrl: './pag-main-estu.component.html',
   styleUrl: './pag-main-estu.component.css'
 })
@@ -17,6 +18,8 @@ export class PagMainEstuComponent implements OnInit {
   totalPages: number =1;
   errorMessage: string|null=null;
   estudiante: any = {};
+  skills: any[]= [];
+  habilidadesSeleccionadas: number[] = [];
 
   constructor(
     private authService:AuthService, 
@@ -27,9 +30,22 @@ export class PagMainEstuComponent implements OnInit {
   ngOnInit(): void {
     this.cargarOfertas(this.currentPage);
     this.cargarDatosEstudiante();
+    this.cargarSkills();
    }
 
    loading:boolean=false;
+
+
+   cargarSkills(): void {
+    this.estudianteService.getSkills().subscribe({
+      next: (response) => {
+        this.skills = response.habilidades; // Asigna las habilidades recibidas del servicio
+      },
+      error: (error) => {
+        console.error('Error al cargar las habilidades', error);
+      }
+    });
+  }
 
    cargarOfertas(page:number):void{
     this.loading=true;
@@ -81,4 +97,23 @@ export class PagMainEstuComponent implements OnInit {
     });
   }
 
+  buscarOfertasPorHabilidades(): void {
+    this.estudianteService.filtrarOfertasporHabilidades(this.habilidadesSeleccionadas).subscribe({
+      next: (response)=> {
+        this.ofertas = response.ofertas.data;
+        this.currentPage = response.ofertas.currentPage;
+        this.totalPages = response.ofertas.last_page;
+      }
+    });
+  }
+
+  // Método para manejar cambios en los checkboxes de habilidades
+  onSkillChange(skillId: number): void {
+    const index = this.habilidadesSeleccionadas.indexOf(skillId);
+    if (index === -1) {
+      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
+    } else {
+      this.habilidadesSeleccionadas.splice(index, 1); // Quitar habilidad seleccionada si ya está seleccionada
+    }
+  }  
 }

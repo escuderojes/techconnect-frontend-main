@@ -45,7 +45,7 @@
                     </div>
                     <div class="formbold-mb-3 formbold-input-wrapp">
                         <label for="logo" class="formbold-form-label"> Subir Logo de la Empresa</label>
-                        <input type="file" name="logo" id="logo" (change)="onFileSelected($event)" class="formbold-form-input formbold-form-file" />
+                        <input type="file" name="logo" id="logo" (change)="onFileSelected($event)" class="formbold-form-input formbold-form-file"  accept=".jpg, .jpeg, .png" size="2048" />
                         <!-- Campo de entrada para subir un archivo, con un ID y una clase personalizada -->
                     </div>
                     <div class="container-sm" id="img">
@@ -59,7 +59,7 @@
                         {{ errorMessage }}
                     </div>
                 </form>
-                <!-- <script>
+                <script>
                     document.getElementById('logo').addEventListener('change', function () {
                         const input = this;
                         const img = document.getElementById('selectedImage');
@@ -74,7 +74,7 @@
                             alert('Por favor, selecciona una imagen primero.');
                         }
                     });
-                </script> -->
+                </script>
             </div>
         </div>
     </main>
