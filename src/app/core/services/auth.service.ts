@@ -39,7 +39,6 @@ export class AuthService {
       return localStorage.getItem('auth_token');
     }
     return null
-   
   }
 
   setRole(role:string): void{
@@ -51,6 +50,14 @@ export class AuthService {
     }
     return null
   }
+  getEmailVerified():boolean{
+    return JSON.parse(localStorage.getItem('email_verified')|| 'false');
+  }
+
+  setEmailVerified(emailVerified: boolean): void {
+    localStorage.setItem('email_verified', JSON.stringify(emailVerified));
+  }
+
   //ENVIAR ENLACE RESTABLECIMIENTO  DE CONTRASEÑA
   forgotPassword(email: string) : Observable<any>{
     return this.http.post(`${this.apiUrl}/forgot-password`,{email});
@@ -85,6 +92,10 @@ export class AuthService {
   removeRole(): void{
     console.log('Borrando rol');
     localStorage.removeItem('role');
+  }
+  removeEmailVerified():void{
+    console.log('Borrando Email Verified')
+    localStorage.removeItem('email_verified');
   }
   // Verificar si el usuario está autenticado
   isAuthenticated(): boolean {

@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-page-main-reclu',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
+  imports: [RouterLink, 
+    CommonModule, 
+    FormsModule
+  ],
   templateUrl: './page-main-reclu.component.html',
   styleUrl: './page-main-reclu.component.css'
 })
@@ -26,12 +29,18 @@ export class PageMainRecluComponent implements OnInit{
   constructor(
     private authService:AuthService, 
     private reclutadorService:ReclutadorService, 
-    private router:Router){}
+    private router:Router
+  ){}
 
   ngOnInit(): void {
     this.cargarEstudiantes(this.currentPage);
     this.cargarDatosReclutador();
     this.cargarSkills();
+
+    // Verificar si el correo del usuario está verificado
+    if (!this.authService.getEmailVerified()) {
+      alert('Su correo electrónico no está verificado. Por favor, verifíquelo para acceder a todas las funciones.');
+    }
   }
 
   loading:boolean=false;
@@ -96,6 +105,7 @@ export class PageMainRecluComponent implements OnInit{
         // Limpia el token del localStorage
         this.authService.removeToken();
         this.authService.removeRole();
+        this.authService.removeEmailVerified();
         
         // Redirige al usuario a la página de inicio de sesión
         this.router.navigate(['/home']);

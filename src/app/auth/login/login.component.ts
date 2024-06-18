@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit{
         this.errorMessage= null;
         this.authService.setToken(response.access_token);
         this.authService.setRole(response.role);
+        this.authService.setEmailVerified(response.email_verified)
 
         console.log('User Role:', response.role);
 

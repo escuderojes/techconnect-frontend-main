@@ -31,6 +31,11 @@ export class PagMainEstuComponent implements OnInit {
     this.cargarOfertas(this.currentPage);
     this.cargarDatosEstudiante();
     this.cargarSkills();
+
+    // Verificar si el correo del usuario está verificado
+    if (!this.authService.getEmailVerified()) {
+      alert('Su correo electrónico no está verificado. Por favor, verifíquelo para acceder a todas las funciones.');
+    }
    }
 
    loading:boolean=false;
@@ -87,6 +92,7 @@ export class PagMainEstuComponent implements OnInit {
         // Limpia el token del localStorage
         this.authService.removeToken();
         this.authService.removeRole();
+        this.authService.removeEmailVerified();
         
         // Redirige al usuario a la página de inicio de sesión
         this.router.navigate(['/home']);
