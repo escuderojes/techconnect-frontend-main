@@ -6,7 +6,7 @@ import { InserSkillEstuComponent } from './inser-skill-estu/inser-skill-estu.com
 import { InserDataEstuComponent } from './inser-data-estu/inser-data-estu.component';
 
 export const ESTUDIANTE_ROUTES: Routes = [
-    { path: 'pag-main-estu', component: PagMainEstuComponent },
+    { path: 'pag/main/estu', component: PagMainEstuComponent },
     { path: 'profile-estu', component: ProfileEstuComponent },
     { path: 'actu-data-estu', component: ActuDataEstuComponent},
     { path: 'inser-skill-estu', component: InserSkillEstuComponent},

@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    background-color: rgb(210, 220, 226);
 }
 
 .formbold-mb-3 {
@@ -49,11 +50,15 @@ body {
     width: 100%;
     background: white;
     padding: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
 .formbold-img {
     display: block;
-    margin: 0 auto 45px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .formbold-input-wrapp>div {
@@ -193,19 +198,15 @@ select.formbold-form-input,
     width: 45%;
 }
 
-body {
-    background-color: rgb(210, 220, 226);
-
-}
-
 #habilibd {
     padding-top: 10%;
 }
 
 #habilipro {
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .form-check-input {
     border: 2px solid #474747;
+    margin-right: 10px;
 }
