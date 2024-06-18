@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<main>
+    <div class="formbold-main-wrapper">
+        <!-- Contenedor principal que envuelve todo el contenido del formulario -->
+
+        <div class="formbold-form-wrapper">
+            <!-- Contenedor para el formulario, aplicando una clase CSS personalizada -->
+            <img src="./img/fond.jpg" class="img-fluid" alt="imagenfondo">
+            <!-- Imagen de fondo con clase de Bootstrap para hacerla fluida y un atributo alt para accesibilidad -->
+            <form action="ruta-a-tu-archivo-de-servidor" method="POST" enctype="multipart/form-data">
+                <!-- Reemplaza 'ruta-a-tu-archivo-de-servidor' con la ruta real de tu servidor --> 
+                <!-- Formulario que envía datos mediante el método POST a la URL especificada -->
+                <div class="formbold-input-wrapp formbold-mb-3">
+                    <!-- Contenedor para agrupar entradas de formulario relacionadas, con margen inferior -->
+                </div>
+                <section>
+                    <div class="formbold-mb-3">
+                        <label for="nombres" class="formbold-form-label"> Nombres </label>
+                        <input type="text" name="nombres" id="nombres" placeholder="Nombres..."
+                            class="formbold-form-input" value=""/>
+                        <!-- Campo de entrada para los nombres, con un ID y una clase personalizada -->
+                    </div>
+                    <div class="formbold-mb-3">
+                        <label for="apellidos" class="formbold-form-label"> Apellidos </label>
+                        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos..."
+                            class="formbold-form-input" value=""/>
+                        <!-- Campo de entrada para los apellidos, con un ID y una clase personalizada -->
+                    </div>
+
+                    <div class="formbold-mb-3">
+                        <label class="formbold-form-label" for="genero"> Genero </label>
+                        <select class="formbold-form-input" name="genero" id="genero">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                        <!-- Selección de género con opciones para masculino, femenino y otros -->
+                    </div>
+
+                    <div class="formbold-mb-3">
+                        <label for="fecha_nacimiento" class="formbold-form-label"> Fecha de Nacimiento </label>
+                        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="formbold-form-input" value="" />
+                        <!-- Campo de entrada para la fecha de nacimiento, con un ID y una clase personalizada -->
+                    </div>
+                    <div class="formbold-mb-3">
+                        <label for="correo" class="formbold-form-label"> Correo Electronico </label>
+                        <input type="email" name="correo" id="correo" placeholder="example@email.com"
+                            class="formbold-form-input" value="" />
+                        <!-- Campo de entrada para el correo electrónico, con validación de tipo email -->
+                    </div>
+
+                    <div class="formbold-mb-3 formbold-input-wrapp">
+                        <label for="telefono" class="formbold-form-label"> Teléfono</label>
+                        <div>
+                            <input type="text" name="telefono" id="telefono" placeholder="Número Telefónico"
+                                class="formbold-form-input" value=""/>
+                            <!-- Campo de entrada para el teléfono, con un ID y una clase personalizada -->
+                        </div>
+                    </div>
+
+                    <div class="formbold-mb-3">
+                        <label for="carrera" class="formbold-form-label"> Carrera </label>
+                        <select class="formbold-form-input" name="carrera" id="carrera">
+                            <option value="Ing. de Sistemas">Ing. de Sistemas</option>
+                            <option value="ciberseguridad">Ciberseguridad</option>
+                        </select>
+                        <!-- Campo de entrada para la ciudad, con un ID y una clase personalizada -->
+                    </div>
+
+                    <!-- Nuevo campo de área de texto para información sobre la carrera -->
+                    <div class="formbold-mb-3 formbold-input-wrapp">
+                        <label for="bio" class="formbold-form-label"> Información sobre su Carrera Profesional</label>
+                        <textarea name="bio" id="bio" rows="4" placeholder="Describa su trayectoria"
+                            class="formbold-form-input"></textarea>
+                    </div>
+
+                    <div class="formbold-mb-3 formbold-input-wrapp">
+                        <label for="photo" class="formbold-form-label"> Subir Foto de Perfil </label>
+                        <input type="file" name="photo" id="photo"
+                            class="formbold-form-input formbold-form-file" />
+                        <!-- Campo de entrada para subir un archivo, con un ID y una clase personalizada -->
+                    </div>
+                    <div class="container-sm" id="img">
+                        <img id="selectedImage" src="./img/default.png" class="img-thumbnail" alt="Imagen predeterminada">
+                    </div>
+                    
+                    <!-- Botón de envío del formulario -->
+                </section>
+                <input type="submit" value="Actualizar Datos" id="guardar_datos">
+            </form>
+
+            <script>
+                document.getElementById('photo').addEventListener('change', function() {
+                    const input = this;
+                    const img = document.getElementById('selectedImage');
+                    const file = input.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            img.src = e.target.result;
+                        }
+                        reader.readAsDataURL(file);
+                    } else {
+                        alert('Por favor, selecciona una imagen primero.');
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</main>
+</body>
+</html>
