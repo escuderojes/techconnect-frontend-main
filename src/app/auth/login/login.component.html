@@ -37,6 +37,13 @@
                     <div class="alerta-error">Todos los campos son obligatorios</div>
                     <div class="alerta-exito">Ingreso exitoso!</div>
                 </form>
+                <div *ngIf="errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}
+                </div>
+                <!-- Alerta de éxito -->
+                 <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                    {{ successMessage }}
+                </div>
             </div>
         </div>
     </div>

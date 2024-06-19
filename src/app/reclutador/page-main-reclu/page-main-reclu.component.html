@@ -22,8 +22,6 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 
                     <div class="navbar-nav m-auto">
-
-
                         <!-- filtrar por carrera -->
                         <a class="nav-link disabled" href="#" aria-disabled="true" id="filtrar">Filtrar por:</a>
 
@@ -65,46 +63,50 @@
             </nav>
         </div>
         <a [routerLink]="['/reclutador/profile/', reclutador.id]" class="nav-link" id="nav-perfil">Ver perfil</a>
-        <a href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
+        <a [routerLink]="['/reclutador/job-offer']" href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
         <a href="#" class="nav-link" id="nav-mess">Postulaciones <span class="badge bg-secondary"
                 id="mess-span">4</span></a>
         <a class="nav-link" href="#" id="nav-mess" (click)="onLogout($event)">Cerrar Sesión</a>
     </header>
 
     <div class="container">
-        <div class="row">
-          <!-- Mostrar error si existe -->
-          <div *ngIf="errorMessage" class="alert alert-danger">
+        <!-- Mostrar error si existe -->
+        <div *ngIf="errorMessage" class="alert alert-danger">
             {{ errorMessage }}
+            <button class="btn btn-primary" (click)="resendVerificationEmail()">Verificar Correo</button>
           </div>
-      
-          <div *ngIf="loading" class="spinner">Cargando...</div>
+          <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+          <div *ngIf="errorMessage1" class="alert alert-danger">
+            {{ errorMessage1 }}
+          </div>
 
-         <div *ngIf="!loading">
-            <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
-            <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
-                <div class="card">
-                <div class="head">
-                    <div class="circle"></div>
-                    <div class="img">
-                    <img [src]="getImageUrl(estudiantes.photo)" alt="Foto del Estudiante">
+          <div *ngIf="loading" class="spinner">Cargando...</div>
+          <div *ngIf="!loading">
+            <div class="row">
+                <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
+                <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
+                    <div class="card">
+                    <div class="head">
+                        <div class="circle"></div>
+                        <div class="img">
+                        <img [src]="getImageUrl(estudiantes.photo)" alt="Foto del Estudiante">
+                        </div>
+                    </div>
+                    <div class="description">
+                        <h3>{{ estudiantes.nombres }}</h3>
+                        <h4>{{ estudiantes.carrera }}</h4>
+                        <p>{{ estudiantes.bio }}</p>
+                        <ul>
+                            <li *ngFor="let habilidad of estudiantes.habilidades">{{ habilidad.nombreHabilidad }}</li>
+                        </ul>
+                    </div>
+                    <div class="contact">
+                        <a href="#">Contactar</a>
+                    </div>
                     </div>
                 </div>
-                <div class="description">
-                    <h3>{{ estudiantes.nombres }}</h3>
-                    <h4>{{ estudiantes.carrera }}</h4>
-                    <p>{{ estudiantes.bio }}</p>
-                    <ul>
-                        <li *ngFor="let habilidad of estudiantes.habilidades">{{ habilidad.nombreHabilidad }}</li>
-                      </ul>
-                </div>
-                <div class="contact">
-                    <a href="#">Contactar</a>
-                </div>
-                </div>
             </div>
-            </div>
-         </div>
+        </div>
           
      <!-- Paginación -->
   <nav aria-label="Paginación">

@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-page-main-reclu',
   standalone: true,
-  imports: [RouterLink, 
+  imports: [
+    RouterLink, 
     CommonModule, 
     FormsModule
   ],
@@ -22,6 +23,8 @@ export class PageMainRecluComponent implements OnInit{
   currentPage: number = 1;
   totalPages: number=1;
   errorMessage: string | null=null;
+  errorMessage1: string | null=null;
+  successMessage: string | null = null;
   reclutador: any = {};
   skills: any[] = [];
   habilidadesSeleccionadas: number[] = [];
@@ -39,7 +42,7 @@ export class PageMainRecluComponent implements OnInit{
 
     // Verificar si el correo del usuario está verificado
     if (!this.authService.getEmailVerified()) {
-      alert('Su correo electrónico no está verificado. Por favor, verifíquelo para acceder a todas las funciones.');
+      this.errorMessage= 'Su correo electrónico no está verificado. Por favor, verifíquelo para acceder a todas las funciones.';
     }
   }
 
@@ -85,6 +88,7 @@ export class PageMainRecluComponent implements OnInit{
       },
       error: (error)=>{
         console.error('Error al cargar los datos del reclutador', error)
+        this.errorMessage1= 'Complete su perfil en Ver Perfil->Actualizar Datos';
       }
     });
   }
@@ -134,6 +138,21 @@ export class PageMainRecluComponent implements OnInit{
     } else {
       this.habilidadesSeleccionadas.splice(index, 1); // Quitar habilidad seleccionada si ya está seleccionada
     }
+  }
+
+  resendVerificationEmail(){
+    this.authService.resendVerification().subscribe({
+      next: (response) => {
+        this.successMessage = 'Correo de verificación enviado con éxito';
+        this.errorMessage = null;
+        console.log('Correo de verificación enviado con éxito', response);
+      },
+      error: (error) => {
+        console.log('Error al enviar el correo de verificación', error);
+        this.successMessage = null;
+        this.errorMessage = error.error?.message || 'No se pudo enviar el correo de verificación';
+      }
+    });
   }
   
 }

@@ -10,12 +10,13 @@ import { InserSkillEstuComponent } from './estudiante/inser-skill-estu/inser-ski
 import { InserDataEstuComponent } from './estudiante/inser-data-estu/inser-data-estu.component';
 import { JobOfferComponent } from './reclutador/job-offer/job-offer.component';
 import { PageMainRecluComponent } from './reclutador/page-main-reclu/page-main-reclu.component';
+import { ActuDataRecluComponent } from './reclutador/actu-data-reclu/actu-data-reclu.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterEstuComponent, RegisterRecluComponent, PresentationComponent, PagMainEstuComponent, PageMainRecluComponent, ProfileEstuComponent, InserSkillEstuComponent, InserDataEstuComponent, JobOfferComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterEstuComponent, RegisterRecluComponent, PresentationComponent, PagMainEstuComponent, PageMainRecluComponent, ProfileEstuComponent, InserSkillEstuComponent, InserDataEstuComponent, JobOfferComponent, ActuDataRecluComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

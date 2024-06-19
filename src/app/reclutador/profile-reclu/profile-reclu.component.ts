@@ -48,15 +48,21 @@ export class ProfileRecluComponent implements OnInit{
       },
       error: (error: Error) => {
         console.error('Error al cargar los datos del reclutador',error);
-        this.errorMessage= error.message;
+        this.errorMessage= 'El reclutador no tiene datos o hubo un error al cargar sus datos';
       }
     });
   }
 
   onButtonClick(): void{
-    const action=this.reclutador ? 'Actualizar' : 'Insertar';
-    console.log('Navigate to: ', `reclutador/register/data/${this.reclutadorId}/${action}`); 
-    this.router.navigate([`reclutador/register/data/${this.reclutadorId}/${action}`]);
+    if (this.reclutadorId) {
+      // Modo de actualización
+      this.router.navigate([`reclutador/update/data/${this.reclutadorId}/Actualizar`]);
+      console.log('Navigate to: ', `reclutador/update/data/${this.reclutadorId}/Actualizar`);
+    } else {
+      // Modo de inserción
+      this.router.navigate([`reclutador/register/data/0/Insertar`]);
+      console.log('Navigate to: ', `reclutador/register/data/0/Insertar`);
+    }
   }
 
   getImageUrl(): string {

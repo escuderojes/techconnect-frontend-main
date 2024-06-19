@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+.container-body {
     font-family: 'Inter', sans-serif;
 }
 
@@ -194,7 +194,7 @@ select.formbold-form-input,
 }
 
 body {
-    background-color: rgb(210, 220, 226);
+    background-color: rgb(150, 142, 158);
 
 }
 

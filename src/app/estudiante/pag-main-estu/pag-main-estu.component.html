@@ -35,6 +35,13 @@
                 <!-- Mostrar error si existe -->
                 <div *ngIf="errorMessage" class="alert alert-danger">
                   {{ errorMessage }}
+                  <button class="btn btn-primary" (click)="resendVerificationEmail()" >Verificar Correo</button>
+                </div>
+                <div *ngIf="successMessage" class="alert alert-success">    
+                    {{ successMessage }}
+                </div>
+                <div *ngIf="errorMessage1" class="alert alert-danger">
+                  {{ errorMessage1 }}
                 </div>
 
                 <div *ngIf="loading" class="spinner">Cargando...</div>

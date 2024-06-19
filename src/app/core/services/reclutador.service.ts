@@ -15,7 +15,7 @@ export class ReclutadorService {
     return this.http.post(`${this.apiUrl}/reclutador`, reclutador);
   }
   //Actualizar Datos del Reclutador
-  actualizarReclutador(id: string,reclutador: any): Observable<any>{
+  actualizarReclutador(id: string,reclutador:any): Observable<any>{
     return this.http.patch(`${this.apiUrl}/reclutador/${id}`, reclutador);
   }
   reclutadorLogueado():Observable<any>{

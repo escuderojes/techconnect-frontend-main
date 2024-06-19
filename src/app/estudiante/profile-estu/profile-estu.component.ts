@@ -47,7 +47,7 @@ export class ProfileEstuComponent implements OnInit{
       },
       error: (error: Error) => {
         console.error('Error al cargar los datos del estudiante',error);
-        this.errorMessage= error.message;
+        this.errorMessage= 'El estudiante no tiene datos o hubo un error al cargar sus datos';
       }
     });
   }

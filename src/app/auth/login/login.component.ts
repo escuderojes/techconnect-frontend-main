@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit{
   email: string='';
   password: string='';
   errorMessage: string | null=null;
+  successMessage:string|null=null;
 
   constructor(
     private authService: AuthService,
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         this.errorMessage= null;
+        this.successMessage= response.mensaje;
         this.authService.setToken(response.access_token);
         this.authService.setRole(response.role);
         this.authService.setEmailVerified(response.email_verified)
@@ -54,7 +57,8 @@ export class LoginComponent implements OnInit{
         }
       },
       error: (error: Error) => {
-        this.errorMessage = error.message;
+        console.log(this.errorMessage = error.message);
+        this.errorMessage= 'El email o la contraseña no se encuentran registrados, revise sus credenciales o registrese según el rol que desee'
       }
     })
   }
