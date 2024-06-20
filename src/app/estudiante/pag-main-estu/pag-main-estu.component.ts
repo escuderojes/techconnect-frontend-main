@@ -22,6 +22,7 @@ export class PagMainEstuComponent implements OnInit {
   totalPages: number =1;
   errorMessage: string|null=null;
   errorMessage1: string|null=null;
+  errorMessage2: string='';
   successMessage: string | null = null;
   estudiante: any = {};
   skills: any[]= [];
@@ -143,5 +144,23 @@ export class PagMainEstuComponent implements OnInit {
         this.errorMessage = error.error?.message || 'No se pudo enviar el correo de verificación';
       }
     });
+  }
+
+  postular(ofertaId:string):void{
+   this.estudianteService.postularOferta(ofertaId) .subscribe({
+    next: (response) => {
+      this.errorMessage2= '';
+      this.successMessage = 'Postulacion Realizada con exito';
+      console.log('Postulación exitosa', response);
+    },
+    error: (error: any)=>{
+      console.log('Error al postular', error);
+      if(error.status === 400){
+        this.errorMessage2 = 'Ya haz postulado a esta oferta';
+      }else {
+        this.errorMessage2= 'Ocurrio un error al postular a la oferta'
+      }
+    }
+   });
   }
 }

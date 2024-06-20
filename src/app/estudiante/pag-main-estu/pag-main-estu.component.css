@@ -45,7 +45,7 @@
 }
 
 .filter form {
-    display: none;
+    display: none !important;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 200px;
@@ -57,7 +57,7 @@
 }
 
 .filter:hover form {
-    display: block;
+    display: block !important;
 }
 
 .form-check {

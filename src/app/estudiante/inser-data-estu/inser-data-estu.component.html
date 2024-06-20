@@ -7,11 +7,6 @@
                     class="img-fluid" alt="imagenfondo">
             <!-- Imagen de fondo con clase de Bootstrap para hacerla fluida y un atributo alt para accesibilidad -->
             <form  method="POST" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
-                <!-- Reemplaza 'ruta-a-tu-archivo-de-servidor' con la ruta real de tu servidor -->
-                <!-- Formulario que envía datos mediante el método POST a la URL especificada -->
-                <div class="formbold-input-wrapp formbold-mb-3">
-                    <!-- Contenedor para agrupar entradas de formulario relacionadas, con margen inferior -->
-                </div>
                 <section>
                     <div class="formbold-mb-3">
                         <label for="nombres" class="formbold-form-label"> Nombres </label>
@@ -85,30 +80,13 @@
                     
                     <!-- Botón de envío del formulario -->
                 </section>
-                <button type="submit" class="btn btn-primary">{{estudianteId ? 'Actualizar' : 'Insertar'}}</button>
+                <button type="submit" class="btn btn-primary">Insertar Datos del Estudiante</button>
 
                 <!-- Mostrar el mensaje de error si existe -->
                 <div *ngIf="errorMessage" class="error-message">
                     {{ errorMessage }}
                 </div>
             </form>
-
-            <!-- <script>
-                document.getElementById('photo').addEventListener('change', function() {
-                    const input = this;
-                    const img = document.getElementById('selectedImage');
-                    const file = input.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            img.src = e.target.result;
-                        }
-                        reader.readAsDataURL(file);
-                    } else {
-                        alert('Por favor, selecciona una imagen primero.');
-                    }
-                });
-            </script> -->
         </div>
     </div>
 </main>

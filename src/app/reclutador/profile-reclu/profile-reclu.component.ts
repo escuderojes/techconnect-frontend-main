@@ -56,12 +56,12 @@ export class ProfileRecluComponent implements OnInit{
   onButtonClick(): void{
     if (this.reclutadorId) {
       // Modo de actualización
-      this.router.navigate([`reclutador/update/data/${this.reclutadorId}/Actualizar`]);
-      console.log('Navigate to: ', `reclutador/update/data/${this.reclutadorId}/Actualizar`);
+      this.router.navigate([`reclutador/update/data/${this.reclutadorId}`]);
+      console.log('Navigate to: ', `reclutador/update/data/${this.reclutadorId}`);
     } else {
       // Modo de inserción
-      this.router.navigate([`reclutador/register/data/0/Insertar`]);
-      console.log('Navigate to: ', `reclutador/register/data/0/Insertar`);
+      this.router.navigate([`reclutador/register/data/0`]);
+      console.log('Navigate to: ', `reclutador/register/data/0`);
     }
   }
 

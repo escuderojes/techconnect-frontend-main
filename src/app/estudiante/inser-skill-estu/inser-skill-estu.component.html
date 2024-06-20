@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar Habilidades</title>
-    <link rel="shortcut icon" href="./img/UCV-icono.png" type="image/x-icon">
-</head>
-<body>
+<div class="container-body">
     <main>
         <div class="formbold-main-wrapper" id="containerform">
             <!-- Contenedor principal que envuelve todo el contenido del formulario -->
@@ -16,123 +7,25 @@
                 <!-- Imagen de fondo dentro del contenedor del formulario -->
                 <img src="./img/fondo3.0.avif" class="img-fluid formbold-img" alt="imagenfondo">
                 <!-- Contenedor para el formulario, aplicando una clase CSS personalizada -->
-                <form action="+" method="POST">
+                <form (ngSubmit)="agregarHabilidadesAlEstudiantes()" method="POST">
                     <!-- Formulario que envía datos mediante el método POST a la URL especificada(FALTA CAMBIAR) -->
-
-                    <div class="formbold-input-wrapp formbold-mb-3">
-                        <!-- Contenedor para agrupar entradas de formulario relacionadas, con margen inferior -->
-                    </div>
-
                     <section>
-                        <!-- agregando los switches para cada leguajes de programacion -->
                         <div class="formbold-mb-3">
                             <label for="skills" class="formbold-form-label" id="habilipro"> Habilidades de Programación
                             </label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="javascriptSwitch">
-                                <label class="form-check-label" for="javascriptSwitch">JavaScript</label>
+                            <div class="form-check form-switch"  *ngFor="let skill of skills">
+                                <input class="form-check-input" type="checkbox" id="habilidad{{skill.id}}" (change)="onSkillChange(skill.id)">
+                                <label class="form-check-label" for="habilidad{{skill.id}}">{{skill.nombreHabilidad}}</label>
                             </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="pythonSwitch">
-                                <label class="form-check-label" for="pythonSwitch">Python</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="javaSwitch">
-                                <label class="form-check-label" for="javaSwitch">Java</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="c#Switch">
-                                <label class="form-check-label" for="c#Switch">C#</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="c++Switch">
-                                <label class="form-check-label" for="c++Switch">C++</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="phpSwitch">
-                                <label class="form-check-label" for="phpSwitch">PHP</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="typescriptSwitch">
-                                <label class="form-check-label" for="typescriptSwitch">TypeScript</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="swiftSwitch">
-                                <label class="form-check-label" for="swiftSwitch">Swift</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="rubySwitch">
-                                <label class="form-check-label" for="rubySwitch">Ruby</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="kotlinSwitch">
-                                <label class="form-check-label" for="kotlinSwitch">Kotlin</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="othersSwitch">
-                                <label class="form-check-label" for="othersSwitch">Agregar Otros</label>
-                            </div>
-                            <input type="text" name="other_skill" id="other_skill" placeholder="Otra habilidad..."
-                                class="formbold-form-input" style="display: none;">
-                            <!-- base de datos -->
-                            <label for="skills" class="formbold-form-label" id="habilibd"> Habilidades en Base de Datos
-                            </label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="mySQLSwitch">
-                                <label class="form-check-label" for="mysqlSwitch">MySQL</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="postgresqlSwitch">
-                                <label class="form-check-label" for="postgresqlSwitch">PostgreSQL</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="sqlserverSwitch">
-                                <label class="form-check-label" for="sqlserverSwitch">Microsoft SQL Server</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="oracleSwitch">
-                                <label class="form-check-label" for="oracleSwitch">Oracle Database</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="liteSwitch">
-                                <label class="form-check-label" for="liteSwitch">SQLite</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="mongoSwitch">
-                                <label class="form-check-label" for="mongoSwitch">MongoDB</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="redisSwitch">
-                                <label class="form-check-label" for="redisSwitch">Redis</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="amazonSwitch">
-                                <label class="form-check-label" for="amazonSwitch">Amazon RDS</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="fireSwitch">
-                                <label class="form-check-label" for="fireSwitch">Firebase Realtime Database</label>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="cloudSwitch">
-                                <label class="form-check-label" for="cloudSwitch">Google Cloud SQL</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="othersSwitchbd">
-                                <label class="form-check-label" for="othersSwitch">Agregar Otros</label>
-                            </div>
-                            <!-- Campo de entrada adicional para escribir otra habilidad, oculto por defecto -->
-                            <input type="text" name="other_skillbd" id="other_skillbd" placeholder="Otra habilidad..."
-                                class="formbold-form-input" style="display: none;">
                         </div>
-                        <button class="formbold-btn">Guardar</button>
+                        <button type="submit"  class="formbold-btn">Guardar Habilidades</button>
                         <!-- Botón de envío del formulario -->
                     </section>
                 </form>
             </div>
         </div>
     </main>
-    <!-- LO QUE HACE LOS CODIGOS ES CUANDO ESTA DESMARCADA LA CASILLA LO DE AGREGAR OTRO ES INVISIBLE, SI SE ACTIVA, SE MUESTRA -->
+    <!-- LO QUE HACE LOS CODIGOS ES CUANDO ESTA DESMARCADA LA CASILLA LO DE AGREGAR OTRO ES INVISIBLE, SI SE ACTIVA, SE MUESTRA
     <script>
         // Para el switch de agregar otras habilidades
         document.querySelectorAll('.form-check-input').forEach(function (el) {
@@ -155,6 +48,5 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
+    </script> -->
+</div>

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -61,5 +61,24 @@ export class LoginComponent implements OnInit{
         this.errorMessage= 'El email o la contraseña no se encuentran registrados, revise sus credenciales o registrese según el rol que desee'
       }
     })
+  }
+
+  forgotPassword(){
+    if (!this.email) {
+      alert('Por favor ingresa tu correo electrónico para restablecer la contraseña.');
+      return;
+    }
+    this.authService.forgotPassword(this.email).subscribe({
+      next: (response) => {
+        console.log('Solicitud de restablecimiento de contraseña enviada con éxito:', response);
+        // Aquí puedes mostrar un mensaje al usuario de que se envió el correo de restablecimiento
+        alert('Se ha enviado un correo electrónico para restablecer tu contraseña. Revisa tu bandeja de entrada.');
+      },
+      error: (error) => {
+        console.error('Error al enviar solicitud de restablecimiento de contraseña:', error);
+        // Aquí puedes mostrar un mensaje de error al usuario, por ejemplo:
+        alert('Hubo un problema al enviar la solicitud. Por favor, inténtalo de nuevo más tarde.');
+      }
+    });
   }
 }

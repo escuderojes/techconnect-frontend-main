@@ -25,6 +25,10 @@ export class ReclutadorService {
   getReclutador(id: string): Observable<any>{
     return this.http.get(`${this.apiUrl}/reclutador/${id}`);
   }
+  //Obtener estudiante específico para ver su perfil
+  obtenerEstudianteporId(id:string):Observable<any>{
+    return this.http.get(`${this.apiUrl}/reclutador/estudiante/${id}`);
+  }
   //Método para filtrar estudiantes por habilidades
   filtrarEstudiantesPorHabilidades(habilidades: number[]): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/reclutador/estudiantes/filtrar`, {habilidades:habilidades});

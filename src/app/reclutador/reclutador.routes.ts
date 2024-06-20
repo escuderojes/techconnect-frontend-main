@@ -10,7 +10,7 @@ import { ActuDataRecluComponent } from './actu-data-reclu/actu-data-reclu.compon
 export const RECLUTADOR_ROUTES: Routes = [
     { path: 'home.reclutador', component: PageMainRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard]},
     { path: 'profile/:id', component: ProfileRecluComponent, canActivate: [AuthGuard,ReclutadorGuard] },
-    { path: 'register/data/:reclutadorId/:action', component: RegDataRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard] },
+    { path: 'register/data/:reclutadorId', component: RegDataRecluComponent,  canActivate: [AuthGuard,ReclutadorGuard] },
     { path: 'job-offer', component: JobOfferComponent },
-    { path: 'update/data/:reclutadorId/:action', component: ActuDataRecluComponent },
+    { path: 'update/data/:reclutadorId', component: ActuDataRecluComponent },
 ];

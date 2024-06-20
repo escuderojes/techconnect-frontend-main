@@ -5,10 +5,12 @@ import { InserDataEstuComponent } from './inser-data-estu/inser-data-estu.compon
 import { InserSkillEstuComponent } from './inser-skill-estu/inser-skill-estu.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { EstudianteGuard } from '../guards/estudiante-guard.guard';
+import { ActuDataEstuComponent } from './actu-data-estu/actu-data-estu.component';
 
 export const ESTUDIANTE_ROUTES: Routes = [
     { path: 'home.estudiante', component: PagMainEstuComponent, canActivate: [AuthGuard,EstudianteGuard] },
     { path: 'profile/:id', component: ProfileEstuComponent, canActivate: [AuthGuard,EstudianteGuard] },
-    { path: 'inser-data/:estudianteId/:action', component: InserDataEstuComponent, canActivate: [AuthGuard,EstudianteGuard]},
-    { path: 'inser-skill', component: InserSkillEstuComponent, canActivate: [AuthGuard,EstudianteGuard]}
+    { path: 'inser-data/:estudianteId', component: InserDataEstuComponent, canActivate: [AuthGuard,EstudianteGuard]},
+    { path: 'actu-data/:estudianteId', component: ActuDataEstuComponent, canActivate: [AuthGuard,EstudianteGuard] },
+    { path: 'inser-skill/:estudianteId', component: InserSkillEstuComponent, canActivate: [AuthGuard,EstudianteGuard]}
 ];

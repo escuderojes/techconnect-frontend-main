@@ -3,11 +3,10 @@
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                 <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3"
-                    src="/public/img/profile.jpg" alt="Image">
-                <h1 class="font-weight-bold">Kate Glover</h1>
+                    [src]="getImageUrl()" alt="Image">
+                <h1 class="font-weight-bold">{{estudiante?.nombres + estudiante?.apellidos || 'No hay información'}}</h1>
                 <p class="mb-4">
-                    Me dedico a desarrollar soluciones tecnológicas innovadoras y a proteger la información en un
-                    entorno cada vez más digitalizado.
+                    {{estudiante?.bio || 'No hay informacion'}}
                 </p>
                 <div class="d-flex justify-content-center mb-5">
                     <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -44,7 +43,7 @@
                             </div>
                             <a [routerLink]="['/portafolio_reclu/contact']"
                                 class="nav-item nav-link active">Contacto</a>
-                            <a [routerLink]="['/reclutador/page/main/reclu']" class="nav-item nav-link">Salir</a>
+                            <a [routerLink]="['/reclutador/home.reclutador']" class="nav-item nav-link">Salir</a>
                         </div>
                     </div>
                 </nav>
@@ -66,19 +65,14 @@
             <div class="container bg-white pt-5">
                 <div class="row px-3 pb-2">
                     <div class="col-sm-4 text-center mb-3">
-                        <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
-                        <h4 class="font-weight-bold">Dirección</h4>
-                        <p>123 Street, New York, USA</p>
-                    </div>
-                    <div class="col-sm-4 text-center mb-3">
                         <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
                         <h4 class="font-weight-bold">Telefono</h4>
-                        <p>+012 345 6789</p>
+                        <p>{{estudiante?.telefono}}</p>
                     </div>
                     <div class="col-sm-4 text-center mb-3">
                         <i class="far fa-2x fa-envelope mb-3 text-primary"></i>
                         <h4 class="font-weight-bold">Email</h4>
-                        <p>info&#64;example.com</p>
+                        <p>{{estudiante?.correo}}</p>
                     </div>
                 </div>
 

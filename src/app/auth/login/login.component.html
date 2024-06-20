@@ -2,7 +2,7 @@
     <div class="container-form register">
         <div class="information">
             <div class="info-childs">
-                <img src="./img/UCV-logo.png" alt="UCV" height="57" width="300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/LogoUCV_2018.png/800px-LogoUCV_2018.png" alt="UCV" height="57" width="300">
                 <h2>¡Te damos la bienvenida a TechConnect!</h2>
                 <p>¿Aún no tienes una cuenta?</p>
                 <input type="button" value="Registrarse" id="sign-up">
@@ -31,19 +31,13 @@
                         <label for="rememberCheck">Mantener Sesión Iniciada</label>
                     </div>
                     <div class="recordar">
-                        <a href="#">¿Has olvidado tu contraseña?</a>
+                        <a [routerLink]="['reset-password']">¿Has olvidado tu contraseña?</a>
                     </div>
                     <input type="submit" value="Iniciar sesión" id="sign-in">
-                    <div class="alerta-error">Todos los campos son obligatorios</div>
-                    <div class="alerta-exito">Ingreso exitoso!</div>
+                    
                 </form>
-                <div *ngIf="errorMessage" class="alert alert-danger">
-                    {{ errorMessage }}
-                </div>
-                <!-- Alerta de éxito -->
-                 <div *ngIf="successMessage" class="alert alert-success" role="alert">
-                    {{ successMessage }}
-                </div>
+                <div *ngIf="errorMessage" class="alerta-error">{{ errorMessage }}</div>
+                    <div *ngIf="successMessage" class="alerta-exito">{{ successMessage }}</div>
             </div>
         </div>
     </div>

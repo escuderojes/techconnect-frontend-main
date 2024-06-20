@@ -3,11 +3,10 @@
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                 <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3"
-                    src="../../../../public/img/profile.jpg" alt="Image">
-                <h1 class="font-weight-bold">Kate Glover</h1>
+                    [src]="getImageUrl()" alt="Image">
+                <h1 class="font-weight-bold">{{estudiante?.nombres + estudiante?.apellidos || 'No hay información'}}</h1>
                 <p class="mb-4">
-                    Me dedico a desarrollar soluciones tecnológicas innovadoras y a proteger la información en un
-                    entorno cada vez más digitalizado.
+                    {{estudiante?.bio || 'No hay informacion'}}
                 </p>
                 <div class="d-flex justify-content-center mb-5">
                     <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -42,7 +41,7 @@
                                 </div>
                             </div>
                             <a [routerLink]="['/portafolio_reclu/contact']" class="nav-item nav-link">Contacto</a>
-                            <a [routerLink]="['/reclutador/page/main/reclu']" class="nav-item nav-link">Salir</a>
+                            <a [routerLink]="['/reclutador/home.reclutador']" class="nav-item nav-link">Salir</a>
                         </div>
                     </div>
                 </nav>

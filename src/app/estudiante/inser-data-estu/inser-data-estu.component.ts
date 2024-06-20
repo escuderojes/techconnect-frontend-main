@@ -16,6 +16,8 @@ export class InserDataEstuComponent implements OnInit{
   estudiante:any = {};
   estudianteId: string='';
   errorMessage: string | null=null;
+  successMessage:string |null=null;
+  selectedFile: File | null = null;
   
   constructor(
     private estudianteService: EstudianteService,
@@ -24,26 +26,8 @@ export class InserDataEstuComponent implements OnInit{
   ) { }
   
   ngOnInit(): void {
-    this.estudianteId = this.route.snapshot.paramMap.get('id')?? '';
-    if(this.estudianteId){
-      this.cargarDatos();
-    }else {
-      this.errorMessage= "No se encontró el estudiante";
-    }
-  }
-
-  cargarDatos(){
-    this.estudianteService.obtenerEstudiante(this.estudianteId).subscribe({
-      next: (response) => {
-        this.errorMessage = null;
-        this.estudiante = response;
-        
-      },
-      error: (error: Error) => {
-        console.error('Error al cargar los datos del estudiante',error);
-        this.errorMessage= error.message;
-      }
-    });
+    this.estudianteId = this.route.snapshot.paramMap.get('id') ?? ''; 
+    console.log('Estudiante ID: ', this.estudianteId)
   }
 
   insertarEstudiante(){
@@ -51,7 +35,7 @@ export class InserDataEstuComponent implements OnInit{
       next: (response) =>{
         this.errorMessage = null;
         console.log('Estudiante insertado con éxito', response);
-        this.router.navigate(['/home.estudiante']);
+        this.router.navigate(['estudiante/profile', this.estudianteId]);
       },
       error: (error: Error) =>{
         console.log('Error al insertar estudiante', error);
@@ -60,70 +44,42 @@ export class InserDataEstuComponent implements OnInit{
     });
   }
 
-  actualizarEstudiante(){
-    if(this.estudianteId){
-      this.estudianteService.actualizarEstudiante(this.estudianteId,this.estudiante).subscribe({
-        next: (response) => {
-          this.errorMessage = null;
-          console.log('Estudiante actualizado con exito', response)
-          this.router.navigate(['/estudiante/profile']);
-        },
-        error: (error: Error) => {
-          console.error('Error al actualizar el estudiante', error)
-          this.errorMessage = error.message;
-        }
-      });
-    }
-  }
-
   onSubmit(){
-    if(this.estudianteId){
-      this.actualizarEstudiante();
-    }else{
-      this.insertarEstudiante();
-    }
+    this.insertarEstudiante();
   }
 
-   // Método para manejar la selección de un archivo
-   onFileSelected(event: any) {
+  // Método para manejar la selección de un archivo
+  onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const formData = new FormData();
-      formData.append('photo', file);
-
-      // Adjuntar otros campos del estudiante
-      for (const key in this.estudiante) {
-        if (this.estudiante.hasOwnProperty(key)) {
-          formData.append(key, this.estudiante[key]);
+        // Verificar el tipo de archivo
+        const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+        if (!validTypes.includes(file.type)) {
+            this.errorMessage = 'Solo se permiten archivos de tipo JPG, JPEG o PNG.';
+            return;
         }
-      }
 
-      // Usar formData en la solicitud de actualización o inserción
-      if (this.estudianteId) {
-        this.estudianteService.actualizarEstudiante(this.estudianteId, formData).subscribe({
-          next: (response) => {
-            this.errorMessage = null;
-            console.log('Estudiante actualizado con éxito', response);
-            this.router.navigate(['/estudiante/home.estudiante']);
-          },
-          error: (error: Error) => {
-            console.error('Error al actualizar el estudiante', error);
-            this.errorMessage = 'Error al actualizar el estudiante';
-          }
-        });
-      } else {
-        this.estudianteService.insertarEstudiante(formData).subscribe({
-          next: (response) => {
-            this.errorMessage = null;
-            console.log('Estudiante insertado con éxito', response);
-            this.router.navigate(['/estudiante/home.estudiante']);
-          },
-          error: (error: Error) => {
-            console.error('Error al insertar el estudiante', error);
-            this.errorMessage = 'Error al insertar el estudiante';
-          }
-        });
-      }
+         // Verifica el tamaño del archivo (máximo 2 MB)
+         const maxSize = 2 * 1024 * 1024; // 2MB
+         if (file.size > maxSize) {
+             this.errorMessage = 'El archivo debe tener un tamaño menor o igual a 2MB.';
+             return;
+         }
+
+        this.selectedFile = file; // Asigna el archivo seleccionado
+        this.previewImage(file);  // Previsualiza la imagen
+
+        // Resetea el mensaje de error si es necesario
+        this.errorMessage = null;
     }
   }
+
+  previewImage(file: File) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+        const selectedImage = document.getElementById('selectedImage') as HTMLImageElement;
+        selectedImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
 }

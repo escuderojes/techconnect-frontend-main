@@ -43,6 +43,9 @@
                 <div *ngIf="errorMessage1" class="alert alert-danger">
                   {{ errorMessage1 }}
                 </div>
+                <div *ngIf="errorMessage2" class="alert alert-danger">
+                  {{ errorMessage2 }}
+                </div>
 
                 <div *ngIf="loading" class="spinner">Cargando...</div>
               
@@ -73,16 +76,16 @@
                               </ul>
                             </div>
                             <div class="b-integration-button-wrapper">
-                              <a href="#" class="b-button-default-icon w-inline-block">
-                                <div>
-                                  Ver más
-                                </div>
-                                <div class="b-icon-xxsmall w-embed">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M15.187 11.2362L11.0895 7.13873L12.1696 6.05859L18.1111 12.0001L12.1696 17.9416L11.0895 16.8615L15.187 12.764H5.88892V11.2362H15.187Z" fill="currentColor"></path>
-                                  </svg>
-                                </div>
-                              </a>
+                              <ng-container *ngIf="!oferta.yaPostulado; else yaPostuladoTemplate">
+                                <a  (click)="postular(oferta.id)" class="b-button-default-icon w-inline-block">
+                                  <div>
+                                    Postular
+                                  </div>
+                                </a>
+                              </ng-container>
+                              <ng-template #yaPostuladoTemplate>
+                                <p>Ya te has postulado a esta oferta</p>
+                              </ng-template>
                             </div>
                           </div>
                         </div>

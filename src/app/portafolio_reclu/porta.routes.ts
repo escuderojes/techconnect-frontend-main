@@ -6,8 +6,8 @@ import { HProComponent } from './h-pro/h-pro.component';
 
 
 export const PORTAFOLIO_RECLU_ROUTES: Routes = [
-    { path: 'about', component: AboutComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'hab/bd', component: HBdComponent },
-    { path: 'hab/pro', component: HProComponent },
+    { path: 'about/:id', component: AboutComponent },
+    { path: 'contact/:id', component: ContactComponent },
+    { path: 'hab/bd/:id', component: HBdComponent },
+    { path: 'hab/pro/:id', component: HProComponent },
 ];

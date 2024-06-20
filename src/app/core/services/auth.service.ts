@@ -70,6 +70,9 @@ export class AuthService {
   forgotPassword(email: string) : Observable<any>{
     return this.http.post(`${this.apiUrl}/forgot-password`,{email});
   }
+  resetPassword(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password`, data);
+  }
   //ENVIAR NUEVO ENLACE DE VERIFICACION DE CORREO
   resendVerification(): Observable<any>{
     const headers= new HttpHeaders().set('Authorization',`Bearer ${this.getToken()}`);

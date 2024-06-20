@@ -26,7 +26,7 @@ export class RegDataRecluComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.reclutadorId = this.route.snapshot.paramMap.get('reclutadorId') ?? '';
+    this.reclutadorId = this.route.snapshot.paramMap.get('id') ?? '';
     console.log('Reclutador ID:', this.reclutadorId)
   }
 
@@ -36,7 +36,7 @@ export class RegDataRecluComponent implements OnInit {
       next: (response) =>{
         this.errorMessage = null;
         console.log('Reclutador insertado con éxito', response);
-        this.router.navigate(['/home.reclutador']);
+        this.router.navigate(['reclutador/profile', this.reclutadorId]);
       },
       error: (error: Error) =>{
         console.log('Error al insertar reclutador', error);
