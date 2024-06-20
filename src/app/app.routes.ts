@@ -19,7 +19,7 @@ export const routes: Routes = [
     loadChildren: () => import('./estudiante/estudiante.routes').then(m => m.ESTUDIANTE_ROUTES)
   },
   {
-    path: 'reclutador',
+    path: '',
     loadChildren: () => import('./reclutador/reclutador.routes').then(m => m.RECLUTADOR_ROUTES)
   }
 ];
