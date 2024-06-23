@@ -1,16 +1,24 @@
 <div class="container-body">
     <div class="header">
+      <div>
+        <a href="#" [routerLink]="['/estudiante/home.estudiante']" target="_blank" class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/6819/6819195.png" alt="logo">
+            <h2 class="nombre-empresa">TechConnect</h2>
+        </a>
+
+    </div>
         <div class="search-bar">
-            <input type="text" id="search" placeholder="Buscar por...">
+            <input type="text" id="search" placeholder="Buscar por..." [(ngModel)]="searchTerm"
+            (input)="onSearchChange()">
         </div>
+        <a href="#" class="filter" [routerLink]="['/estudiante/mis-postulaciones', estudiante.id]"><h6>Mis Postulaciones</h6></a>
 
         <div class="filter" id="filter">
           <h6>Filtrar por Habilidades</h6>
           <!-- Lista de habilidades en checkboxes -->
           <form>
               <div class="form-check" *ngFor="let skill of skills">
-                  <input class="form-check-input" type="checkbox" id="habilidad{{skill.id}}"
-                         [value]="skill.id" [(ngModel)]="habilidadesSeleccionadas" (change)="onSkillChange(skill.id)">
+                  <input class="form-check-input" type="checkbox" id="habilidad{{skill.id}}" [checked]="habilidadesSeleccionadas.includes(skill.id)" (change)="onSkillChange(skill.id)">
                   <label class="form-check-label" for="habilidad{{skill.id}}">
                       {{ skill.nombreHabilidad }}
                   </label>
@@ -18,8 +26,8 @@
           </form>
       </div>
 
-       <!-- Botón Buscar -->
-       <button type="submit" class="btn btn-primary mt-2" (click)="buscarOfertasPorHabilidades()">Buscar</button>
+       <!-- Botón Buscar
+       <button type="submit" class="btn btn-primary mt-2" (click)="buscarOfertasPorHabilidades()">Buscar</button> -->
       
         <div class="user-input-container">
             <i class="fas fa-user"></i>
@@ -52,7 +60,7 @@
                 <div *ngIf="!loading">  
                     <div class="row">
                         <!-- Iterar sobre la lista de ofertas y mostrar cada una en una tarjeta -->
-                        <div *ngFor="let oferta of ofertas" class="col-md-4 mb-4">
+                        <div *ngFor="let oferta of filteredOfertas" class="col-md-4 mb-4">
                           <div class="b-integration-card">
                             <div class="margin-bottom-08">
                               <div class="paragraph-large b-text-weight-semibold">

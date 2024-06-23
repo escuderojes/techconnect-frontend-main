@@ -1,0 +1,60 @@
+<div class="container-body">
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <p class="logo">Techconnect</p>
+                <img class="logo-img" src="public/img/UCV-icono.png" alt="Logo">
+            </div>
+            <nav>
+                <a [routerLink]="['/reclutador/mis-ofertas']" href="#">Volver</a>     
+            </nav>
+        </div>
+    </header>
+    <section class="seccion">
+    <div class="col-lg-8">
+        <div class="job-list-container"> <!-- Nuevo contenedor -->
+            <h2 class="title">Ver postulaciones</h2>
+            <div class="right-job-list">
+                <div class="job-list-heading  mb-40 d-flex align-items-center justify-content-between">
+                </div>
+            <div *ngIf="loading" class="spinner">Cargando...</div>
+            <div *ngIf="!loading">
+                <div class="Candidate-list">
+                    <div class="Candidate-list-1 mb-40 d-flex align-items-center justify-content-between" *ngFor="let postulacion of postulaciones">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="Candidate-pic">
+                                <img [src]="'http://localhost:8000/public/images/' + postulacion.photo" alt="">
+                            </div>
+                        </div>
+                            <div class="Candidate-name d-flex align-items-start justify-content-center flex-column">
+                                <h4 class="mb-20">{{ postulacion.nombres }} {{ postulacion.apellidos }}</h4>
+                                <span>{{ postulacion.carrera }}</span>
+                            </div>                    
+                            <div class="Candidate-place d-flex align-items-start justify-content-center flex-column">
+                                <ul>
+                                    <li class="mb-20" *ngFor="let habilidad of postulacion.habilidades"><span></span><span>{{habilidad.nombreHabilidad}}</span></li>
+                                </ul>                    
+                            </div>
+                        <div class="Candidate-contact">
+                            <a href="#" [routerLink]="['/portafolio_reclu/about', postulacion.id]" class="view-certificate-button">Conectar</a>                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="job-list-pagination d-flex align-items-center pt-60">
+                <ul class="pagination">
+                  <li class="page-item" [class.disabled]="currentPage === 1">
+                    <a class="page-link" (click)="cambiarPagina(currentPage - 1)">&laquo;</a>
+                  </li>
+                  <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index">
+                    <a class="page-link" [class.active]="currentPage === i + 1" (click)="cambiarPagina(i + 1)">{{ i + 1 }}</a>
+                  </li>
+                  <li class="page-item" [class.disabled]="currentPage === totalPages">
+                    <a class="page-link" (click)="cambiarPagina(currentPage + 1)">&raquo;</a>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </div>
+    </div>
+</section>
+</div>

@@ -16,7 +16,7 @@ export class EstudianteService {
   }
   //Actualizar Datos Etudiante
   actualizarEstudiante(id:string,estudiante:any): Observable<any>{
-    return this.http.put(`${this.apiUrl}/estudiante/${id}`,estudiante);
+    return this.http.patch(`${this.apiUrl}/estudiante/${id}`,estudiante);
   }
   //Obtener datos de estudiante logueado
   getEstudiante(): Observable<any>{
@@ -61,6 +61,10 @@ export class EstudianteService {
      headers = headers.append('Role', role);
    }
    return this.http.get(`${this.apiUrl}/habilidadesEstu`, { headers });
+  }
+
+  verMisPostulaciones(estudianteId:string, page:number=1):Observable<any>{
+    return this.http.get(`${this.apiUrl}/estudiante/mis-postulaciones/${estudianteId}?page=${page}`);
   }
 
 }

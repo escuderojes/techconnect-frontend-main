@@ -1,0 +1,429 @@
+.container-body {
+    --texto-fuente: 'Open Sans', sans-serif;
+    --encabezado-fuente: Ubuntu, sans-serif;
+    --h2-tamano: 2.25rem;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #243659;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.6em;
+}
+
+header .logo-img {
+    margin-left: 10px;
+    width: 50px; /* Ajusta el tamaño según tu preferencia */
+    height: auto;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a {
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+header a:hover {
+    color: rgb(252, 45, 45);
+}
+
+.seccion {
+    background-image: none;
+    display: block;
+    margin: 20px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.row>* {
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) / 2);
+    padding-left: calc(var(--bs-gutter-x) / 2);
+    margin-top: var(--bs-gutter-y);
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.right-job-list .job-list-heading strong {
+    font-family: 'Gordita';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+    color: #111D3B;
+}
+
+.right-job-list .job-list-heading .sort-list strong {
+    padding-right: 40px;
+}
+
+.right-job-list .job-list-heading .sort-list .form-select {
+    color: #19A463;
+    min-width: 122px;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+}
+
+.right-job-list .job-list-heading .sort-list .form-select option {
+    font-family: 'Gordita';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+    color: #19A463;
+    padding-top: 10px;
+}
+
+.Candidate-list .Candidate-list-1 {
+    background-color: #f8f9fa; /* Color de fondo sutil */
+    border: 1px solid rgba(17, 29, 59, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.Candidate-pic img {
+    max-width: 75%;
+    border-radius: 100px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.align-items-start {
+    align-items: flex-start !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.Candidate-list .Candidate-list-1 .Candidate-name h4 {
+    font-family: 'Gordita';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #111D3B;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.Candidate-list .Candidate-list-1 .Candidate-name span {
+    padding-top: 10px;
+    font-family: 'Gordita';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    color: #505050;
+}
+
+.Candidate-list .Candidate-list-1 .Candidate-contact a {
+    background: rgba(25, 164, 99, 0.1);
+    border: 2px solid #19A463;
+    border-radius: 5px;
+    font-family: 'Gordita';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    color: #19A463;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.Candidate-list .Candidate-list-1 .Candidate-contact a:hover {
+    background-color: #19A463;
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.Candidate-list .Candidate-list-1 .Candidate-contact a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(25, 164, 99, 0.4);
+}
+
+a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+span, a {
+    margin: 0;
+}
+
+@media (min-width: 720px) {
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .job-list-heading, .job-list-name {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .right-job-list .job-list-heading strong {
+        font-size: 20px;
+        margin: 20px;
+    }
+    .title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 auto;
+        width: 66.6666666667%;
+        margin: 0 auto; /* Centro horizontalmente */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .Candidate-list .Candidate-list-1 {
+        padding: 20px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .Candidate-list .Candidate-list-1 .Candidate-name h4 {
+        padding: 10px 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .Candidate-list .Candidate-list-1 .Candidate-name span {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .Candidate-list .Candidate-list-1 .Candidate-contact a {
+        padding: 10px 24px !important;
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .Candidate-list .Candidate-list-1 {
+        padding: 20px;
+    }
+
+    .Candidate-list .Candidate-list-1 .Candidate-name h4 {
+        font-size: 20px;
+    }
+
+    .Candidate-list .Candidate-list-1 .Candidate-name span {
+        font-size: 16px;
+    }
+
+    .Candidate-list .Candidate-list-1 .Candidate-contact a {
+        padding: 17px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .Candidate-list .Candidate-list-1 .Candidate-contact a {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+.pt-60 {
+    padding-top: 15px !important;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    justify-content: center;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-item a {
+    display: block;
+    padding: .5rem .75rem;
+    color: #007bff;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+}
+
+.page-item a:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.job-list-pagination ul.pagination .page-item {
+    margin-right: 20px;
+}
+
+.job-list-pagination ul.pagination .page-item .page-link:hover {
+    color: #ffffff;
+    background: #19A463;
+}
+
+.job-list-pagination ul.pagination .page-item .page-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    color: #505050;
+    transition: .3s ease-in-out;
+}
+
+.bi-arrow-right-short::before {
+    content: "\f135";
+}
+
+[class*=" bi-"]::before {
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -.125em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.job-list-container {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #e0f7fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-family: var(--encabezado-fuente);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #243659; /* Color del texto */
+}
+

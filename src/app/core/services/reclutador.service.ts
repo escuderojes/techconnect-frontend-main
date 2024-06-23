@@ -38,8 +38,12 @@ export class ReclutadorService {
     return this.http.post(`${this.apiUrl}/reclutador/ofertas`, oferta);
   }
   //Método para Ver postulaciones en mi oferta ingresada
-  verPostulaciones(ofertaId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/reclutador/postulaciones/${ofertaId}`);
+  verPostulaciones(ofertaId: string, page:number=1): Observable<any> {
+    return this.http.get(`${this.apiUrl}/reclutador/postulaciones/${ofertaId}?page=${page}`);
+  }
+  //Método para obtener ofertas que ingresó el reclutador
+  obtenerOfertasPorReclutador(page:number=1):Observable<any>{
+    return this.http.get(`${this.apiUrl}/ofertas/reclutador?page=${page}`);
   }
 
   //Método para obtener los datos de los estudiantes con paginación

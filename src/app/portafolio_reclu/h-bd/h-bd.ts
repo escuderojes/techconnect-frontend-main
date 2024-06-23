@@ -19,7 +19,7 @@ export const skillsBd: Skill[] = [
     { id: 'crc-googlecloudsql', name: 'GoogleCloudSQL', progressEndValue: 65, color: '#4285F4' }
 ];
 
-export function animateProgress(skills: Skill[]): void {
+export function animateProgress(skills: { id: string, valorProgreso: number, nombreHabilidad: string }[]): void {
     skills.forEach(skill => {
         const circle = document.getElementById(skill.id);
         if (!circle) return;
@@ -27,7 +27,7 @@ export function animateProgress(skills: Skill[]): void {
         const progressValue = circle.querySelector<HTMLElement>(".progress-value");
 
         let progressStartValue = 0;
-        const speed = 20;
+        const speed = 20; // Controla la velocidad de la animación
 
         const progress = setInterval(() => {
             progressStartValue++;
@@ -35,10 +35,10 @@ export function animateProgress(skills: Skill[]): void {
                 progressValue.textContent = `${progressStartValue}%`;
             }
             if (circularProgress) {
-                circularProgress.style.background = `conic-gradient(${skill.color} ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+                circularProgress.style.background = `conic-gradient(#00aaff ${progressStartValue * 3.6}deg, #ededed 0deg)`;
             }
 
-            if (progressStartValue === skill.progressEndValue) {
+            if (progressStartValue >= skill.valorProgreso) {
                 clearInterval(progress);
             }
         }, speed);

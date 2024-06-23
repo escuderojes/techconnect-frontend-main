@@ -53,7 +53,7 @@
                             src="https://media.istockphoto.com/id/1223671392/es/vector/imagen-de-perfil-predeterminada-avatar-marcador-de-posici%C3%B3n-de-la-foto-ilustraci%C3%B3n-vectorial.jpg?s=170667a&w=0&k=20&c=lOj6z2Uu8b8CXtOz2jdE9xVPH6AGGopGjYIhOnoN3eY="
                             class="img-thumbnail" alt="Imagen predeterminada">
                     </div>
-                    <button type="submit" class="btn btn-primary">{{reclutadorId ? 'Actualizar' : 'Insertar'}}</button>
+                    <button type="submit" class="btn btn-primary">Actualizar Reclutador</button>
                     <!-- Mostrar el mensaje de error si existe -->
                     <div *ngIf="errorMessage" class="error-message">
                         {{ errorMessage }}
@@ -62,22 +62,6 @@
                     {{ successMessage }}
                 </div>
                 </form>
-                <!-- <script>
-                    document.getElementById('logo').addEventListener('change', function () {
-                        const input = this;
-                        const img = document.getElementById('selectedImage');
-                        const file = input.files[0];
-                        if (file) {
-                            const reader = new FileReader();
-                            reader.onload = function (e) {
-                                img.src = e.target.result;
-                            }
-                            reader.readAsDataURL(file);
-                        } else {
-                            alert('Por favor, selecciona una imagen primero.');
-                        }
-                    });
-                </script> -->
             </div>
         </div>
     </main>

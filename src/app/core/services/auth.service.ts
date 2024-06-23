@@ -67,11 +67,11 @@ export class AuthService {
   }
 
   //ENVIAR ENLACE RESTABLECIMIENTO  DE CONTRASEÑA
-  forgotPassword(email: string) : Observable<any>{
-    return this.http.post(`${this.apiUrl}/forgot-password`,{email});
+  forgotPassword(emailData: {email: string}) : Observable<any>{
+    return this.http.post(`${this.apiUrl}/forgot-password`,emailData);
   }
-  resetPassword(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/reset-password`, data);
+  resetPassword(resetData: {password:string,password_confirmation:string,token:string}): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password`, resetData);
   }
   //ENVIAR NUEVO ENLACE DE VERIFICACION DE CORREO
   resendVerification(): Observable<any>{

@@ -5,7 +5,7 @@
                 <a class="nav-link active" aria-current="page" [routerLink]="['/estudiante/home.estudiante']" id="navtxt">Retornar</a>
             </li>
         </ul>
-        <h1>Bienvenido, Nombre del Estudiante!</h1>
+        <h1>Bienvenido, {{estudiante.nombres}}</h1>
     </header>
 
 <div class="container-sm">
@@ -33,10 +33,14 @@
             <p><strong>Telefono :</strong>{{estudiante?.telefono || 'No hay información'}}</p>
             <p><strong>Carrera:</strong> {{estudiante?.carrera || 'No hay información'}}</p>
 
-            <button type="button" class="btn btn-primary" id="btndata" (click)="onButtonClick()">
-            {{ estudiante ? 'Actualizar Datos' : 'Registrar Datos' }}
-            </button>
-
+            <div *ngIf="estudiante.id">
+                <button type="button" class="btn btn-primary" id="btndata" [routerLink]="['/estudiante/actu-data', estudianteId]"> Actualizar Datos
+                </button>
+            </div>
+            <div *ngIf="!estudiante.id">
+                <button type="button" class="btn btn-primary" id="btndata" [routerLink]="['/estudiante/inser-data']"> Registrar Datos
+                </button>
+            </div>
             <div *ngIf="errorMessage" class="alert alert-danger">
                 {{ errorMessage }}
             </div>
@@ -50,7 +54,7 @@
             <li class="list-group-item active" aria-current="true" *ngFor="let habilidad of estudiante.habilidades">{{habilidad.nombreHabilidad}}</li>
         </ul>
         <!-- boton para editar -->
-        <a [routerLink]="['/estudiante/inser-skill']"><button type="button" class="btn btn-primary" id="btndatah">Editar
+        <a [routerLink]="['/estudiante/inser-skill', estudianteId]"><button type="button" class="btn btn-primary" id="btndatah">Editar
             Habilidades</button></a>
     </div>
 </div>

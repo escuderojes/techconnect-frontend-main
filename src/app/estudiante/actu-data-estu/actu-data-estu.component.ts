@@ -25,26 +25,71 @@ export class ActuDataEstuComponent implements OnInit{
     private route:ActivatedRoute
   ){}
   ngOnInit(): void {
-    this.estudianteId = this.route.snapshot.paramMap.get('id') ?? '';
-    console.log('Reclutador ID:', this.estudianteId)
+    this.estudianteId = this.route.snapshot.paramMap.get('estudianteId') ?? '';
+    console.log('Estudiante ID:', this.estudianteId)
+    if(this.estudianteId){
+      this.cargarDatos();
+    }else{
+      this.errorMessage= 'No se encontró al estudiante'
+    }
   }
 
-  actualizarEstudiante(){
-    this.estudianteService.actualizarEstudiante(this.estudianteId, this.estudiante).subscribe({
+  cargarDatos(){
+    this.estudianteService.obtenerEstudiante(this.estudianteId).subscribe({
       next: (response) => {
-        this.errorMessage= null;
-        console.log('Estudiante actualizado con éxito', response)
-        this.successMessage = 'Estudiante actualizado con éxito';
-        this.router.navigate(['estudiante/profile',this.estudianteId]);
+        console.log('Respuesta del servidor: ', response)
+        this.errorMessage = null;
+        this.estudiante = response.estudiante;
+
+        if (this.estudiante.photo) {
+          const logoUrl = `http://localhost:8000/images/${this.estudiante.photo}`;
+          const selectedImage = document.getElementById('selectedImage') as HTMLImageElement;
+          selectedImage.src = logoUrl;
+        }
+        
       },
-      error: (error: Error)=>{
-        console.log('Error al actualizar el estudiante',error)
-        this.errorMessage = error.message;
+      error: (error: Error) => {
+        console.error('Error al cargar los datos del estudiante',error);
+        this.errorMessage= 'El estudiante no tiene datos o hubo un error al cargar sus datos';
       }
     });
   }
 
+  actualizarEstudiante(){
+    if(this.estudiante){
+      const formData = new FormData();
+
+      // Agregar archivo de photo si está presente
+      if (this.selectedFile) {
+          formData.append('photo', this.selectedFile);
+      }
+      // Agregar otros campos del estudiante
+      formData.append('nombres', this.estudiante.nombres);
+      formData.append('apellidos', this.estudiante.apellidos);
+      formData.append('genero', this.estudiante.genero);
+      formData.append('fecha_nacimiento', this.estudiante.fecha_nacimiento);
+      formData.append('correo', this.estudiante.correo);
+      formData.append('telefono', this.estudiante.telefono);
+      formData.append('carrera', this.estudiante.carrera);
+      formData.append('bio', this.estudiante.bio)
+      this.estudianteService.actualizarEstudiante(this.estudianteId, formData).subscribe({
+        next: (response) => {
+          this.errorMessage= null;
+          console.log('Estudiante actualizado con éxito', response)
+          this.successMessage = 'Estudiante actualizado con éxito';
+          this.router.navigate(['/estudiante/profile',this.estudianteId]);
+        },
+        error: (error: Error)=>{
+          console.log('Error al actualizar el estudiante',error)
+          this.errorMessage = error.message;
+        }
+      });
+    }
+   
+  }
+
   onSubmit(){
+    console.log('Datos a enviar: ', this.estudiante)
     this.actualizarEstudiante();
   }
 

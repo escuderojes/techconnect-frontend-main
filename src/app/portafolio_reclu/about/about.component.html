@@ -32,15 +32,9 @@
                         <div class="navbar-nav m-auto">
                             <a [routerLink]="['/portafolio_reclu/about']" class="nav-item nav-link active">Sobre mi</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Habilidades</a>
-                                <div class="dropdown-menu">
-                                    <a [routerLink]="['/portafolio_reclu/hab/pro']"
-                                        class="dropdown-item">Programación</a>
-                                    <a [routerLink]="['/portafolio_reclu/hab/bd']" class="dropdown-item">Base de
-                                        Datos</a>
-                                </div>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" [routerLink]="['/portafolio_reclu/hab/bd', estudianteId]">Habilidades</a>
                             </div>
-                            <a [routerLink]="['/portafolio_reclu/contact']" class="nav-item nav-link">Contacto</a>
+                            <a [routerLink]="['/portafolio_reclu/contact',estudianteId]" class="nav-item nav-link">Contacto</a>
                             <a [routerLink]="['/reclutador/home.reclutador']" class="nav-item nav-link">Salir</a>
                         </div>
                     </div>
@@ -64,24 +58,9 @@
                 <div class="row px-3 pb-5">
                     <div class="col-md-12">
                         <h2 class="mb-4 font-weight-bold">CONÓCEME MEJOR</h2>
-                        <img class="img-fluid float-left w-50 mr-4 mb-3" src="/public/img/about.jpg" alt="Image">
+                        <img class="img-fluid float-left w-50 mr-4 mb-3" [src]="getImageUrl()" alt="Image">
                         <p class="m-0">
-                            Desde mis primeros años en la universidad, me he enfocado en adquirir habilidades técnicas y
-                            teóricas que me permitan destacar en el campo de la tecnología. He participado en varios
-                            proyectos estudiantiles donde he podido aplicar conceptos de programación, redes y seguridad
-                            informática, fortaleciendo mi capacidad para resolver problemas complejos y trabajar en
-                            equipo.
-
-                            Mi interés por la ciberseguridad surge de la necesidad de crear entornos digitales más
-                            seguros. He estudiado diversas metodologías y herramientas para la protección de datos, la
-                            detección de vulnerabilidades y la implementación de medidas preventivas. Este conocimiento
-                            me ha permitido colaborar en iniciativas de seguridad dentro de mi universidad, ayudando a
-                            crear conciencia sobre la importancia de la seguridad informática.
-
-                            Además, me apasiona compartir lo que aprendo. He participado en talleres y seminarios donde
-                            he podido enseñar a otros estudiantes sobre buenas prácticas de seguridad y el uso de
-                            tecnologías emergentes. Creo firmemente que la educación y la colaboración son claves para
-                            avanzar en el campo de la ciberseguridad.
+                            {{estudiante?.bio || 'No hay informacion'}}
                         </p>
                     </div>
                     <!-- habilidades que pueden llegar a servir o no -->

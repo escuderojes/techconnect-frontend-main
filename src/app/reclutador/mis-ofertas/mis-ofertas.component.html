@@ -1,0 +1,75 @@
+<div class="container-body">
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <p class="logo">Techconnect</p>
+                <img class="logo-img" src="public/img/UCV-icono.png" alt="Logo">
+            </div>
+            <nav>
+                <a [routerLink]="['/reclutador/home.reclutador']" href="#">Volver</a>    
+            </nav>
+        </div>
+    </header>
+    <section class="seccion">
+    <div class="col-lg-8">
+        <div class="job-list-container"> <!-- Nuevo contenedor -->
+            <h2 class="title">Ver mis Ofertas</h2>
+            <div class="right-job-list">
+                <div class="job-list-heading  mb-40 d-flex align-items-center justify-content-between">
+                    <strong>Aqui podrás ver todas las ofertas que publicaste</strong>
+                <div class="sort-list d-flex align-items-center justify-content-around">
+                    <strong>Buscar por habilidad:</strong>
+                    <div class="">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected="">Phyton</option>
+                          <option value="1">Javascript</option>
+                          <option value="2">C#</option>
+                          <option value="3">PHP</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="loading" class="spinner">Cargando...</div>
+            <div *ngIf="!loading">
+                <div class="Candidate-list">
+                    <div class="Candidate-list-1 mb-40 d-flex align-items-center justify-content-between" *ngFor="let oferta of ofertas">
+                            <div class="Candidate-name d-flex align-items-start justify-content-center flex-column">
+                                <h4 class="mb-20">{{oferta.titulo}}</h4>
+                                <span>{{oferta.nombreEmpresa}}</span>
+                                <span>{{oferta.descripcion}}</span>
+                                <span>{{oferta.carrera}}</span>
+                                <span>{{oferta.ciudad}}</span>
+                                <span>{{oferta.sueldo}}</span>
+                            </div>                    
+                            <div class="Candidate-place d-flex align-items-start justify-content-center flex-column">
+                                <ul>
+                                    <li class="mb-20" *ngFor="let habilidad of oferta.habilidades"><span></span><span>{{habilidad.nombreHabilidad}}</span></li>
+                                </ul>                    
+                            </div>
+                        <div class="Candidate-contact">
+                            <a [routerLink]="['/reclutador/see-postulation', oferta.id]" href="#" class="view-certificate-button">Ver Postulaciones</a>                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="job-list-pagination d-flex align-items-center pt-60">
+                <ul class="pagination">
+                    <li class="page-item" [class.disabled]="currentPage === 1">
+                        <a class="page-link" (click)="cambiarPagina(currentPage - 1)">&laquo;</a>
+                    </li>
+                    <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === i + 1">
+                        <a class="page-link" (click)="cambiarPagina(i + 1)">{{ i + 1 }}</a>
+                      </li>
+                      <li class="page-item" [class.disabled]="currentPage === totalPages">
+                        <a class="page-link" (click)="cambiarPagina(currentPage + 1)" aria-label="Siguiente">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+</div>
+

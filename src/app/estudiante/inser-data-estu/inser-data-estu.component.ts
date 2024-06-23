@@ -25,17 +25,14 @@ export class InserDataEstuComponent implements OnInit{
     private route:ActivatedRoute
   ) { }
   
-  ngOnInit(): void {
-    this.estudianteId = this.route.snapshot.paramMap.get('id') ?? ''; 
-    console.log('Estudiante ID: ', this.estudianteId)
-  }
+  ngOnInit(): void {}
 
   insertarEstudiante(){
     this.estudianteService.insertarEstudiante(this.estudiante).subscribe({
       next: (response) =>{
         this.errorMessage = null;
         console.log('Estudiante insertado con éxito', response);
-        this.router.navigate(['estudiante/profile', this.estudianteId]);
+        this.router.navigate(['estudiante/home.estudiante']);
       },
       error: (error: Error) =>{
         console.log('Error al insertar estudiante', error);

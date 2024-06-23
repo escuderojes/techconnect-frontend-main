@@ -15,6 +15,21 @@
     color: white;
     flex-wrap: wrap; /* Permite que los elementos se ajusten y se envuelvan en líneas nuevas si es necesario */
 }
+/* display felx sirve para que se alinean de izquierda a derecha */
+.logo {
+    display: flex;
+    align-items: center;
+
+}
+/* 50 px es la medida general de una pantalla */
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+.nombre-empresa {
+    position: relative;
+    color: black;
+}
 
 .search-bar {
     flex: 1;
@@ -505,6 +520,9 @@ a:-webkit-any-link {
         flex-direction: column;
         align-items: flex-start;
     }
+    .nombre-empresa {
+        position: relative;
+    }
 }
 
 @media (max-width: 576px) {
@@ -548,5 +566,8 @@ a:-webkit-any-link {
         left: 10px;
         top: 10px;
         transform: none;
+    }
+    .nombre-empresa {
+        position: relative;
     }
 }

@@ -5,9 +5,9 @@
     
             <div class="formbold-form-wrapper">
                 <!-- Contenedor para el formulario, aplicando una clase CSS personalizada -->
-                <img src="./img/fond.jpg" class="img-fluid" alt="imagenfondo">
+                <img src="public/img/fond.jpg" class="img-fluid" alt="imagenfondo">
                 <!-- Imagen de fondo con clase de Bootstrap para hacerla fluida y un atributo alt para accesibilidad -->
-                <form (ngSubmit)="onSubmit()" method="POST" enctype="multipart/form-data">
+                <form (ngSubmit)="onSubmit()" method="PATCH" enctype="multipart/form-data">
                     <div class="formbold-input-wrapp formbold-mb-3">
                         <!-- Contenedor para agrupar entradas de formulario relacionadas, con margen inferior -->
                     </div>
@@ -28,8 +28,8 @@
                         <div class="formbold-mb-3">
                             <label class="formbold-form-label" for="genero"> Genero </label>
                             <select class="formbold-form-input" [(ngModel)]="estudiante.genero" name="genero" id="genero">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
                             </select>
                             <!-- Selección de género con opciones para masculino, femenino y otros -->
                         </div>
@@ -74,11 +74,11 @@
                         <div class="formbold-mb-3 formbold-input-wrapp">
                             <label for="photo" class="formbold-form-label"> Subir Foto de Perfil </label>
                             <input type="file" name="photo" id="photo" (change)="onFileSelected($event)"
-                                class="formbold-form-input formbold-form-file" accept="image/*"/>
+                                class="formbold-form-input formbold-form-file" accept=".jpg, .jpeg, .png" size="2048"/>
                             <!-- Campo de entrada para subir un archivo, con un ID y una clase personalizada -->
                         </div>
                         <div class="container-sm" id="img">
-                            <img id="selectedImage" src="./img/default.png" class="img-thumbnail" alt="Imagen predeterminada">
+                            <img id="selectedImage" src="public/img/default.png" class="img-thumbnail" alt="Imagen predeterminada">
                         </div>
                         
                         <!-- Botón de envío del formulario -->
@@ -88,24 +88,10 @@
                 <div *ngIf="errorMessage" class="error-message">
                     {{ errorMessage }}
                 </div>
+                <div *ngIf="successMessage" class="alert alert-success">    
+                    {{ successMessage }}
+                </div>
                 </form>
-    
-                <!-- <script>
-                    document.getElementById('photo').addEventListener('change', function() {
-                        const input = this;
-                        const img = document.getElementById('selectedImage');
-                        const file = input.files[0];
-                        if (file) {
-                            const reader = new FileReader();
-                            reader.onload = function(e) {
-                                img.src = e.target.result;
-                            }
-                            reader.readAsDataURL(file);
-                        } else {
-                            alert('Por favor, selecciona una imagen primero.');
-                        }
-                    });
-                </script> -->
             </div>
         </div>
     </main>

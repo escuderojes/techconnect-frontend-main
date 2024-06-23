@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit{
   estudiante:any= {};
   estudianteId: string='';
   errorMessage: string|null=null;
-  readonly serverUrl: string = 'htp://localhost:8000';
+  readonly serverUrl: string = 'http://localhost:8000';
   
   constructor(
     private route:ActivatedRoute,

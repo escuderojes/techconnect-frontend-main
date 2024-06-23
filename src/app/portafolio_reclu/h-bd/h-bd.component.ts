@@ -44,6 +44,19 @@ export class HBdComponent implements AfterViewInit, OnInit {
         if(!this.estudiante.photo){
           this.estudiante.photo = 'default.png';
         }
+        // Asignar valores provisionales a las habilidades
+        const valorProvisional = Math.floor(Math.random() * 51) + 50; // Puedes cambiar este valor como prefieras
+
+      this.estudiante.habilidades = this.estudiante.habilidades.map((skill: any, index: number) => ({
+        ...skill,
+        id: `crc-${skill.nombreHabilidad.toLowerCase().replace(/ /g, '-')}-${index}`,
+        valorProgreso: valorProvisional // Asigna un valor provisional de progreso
+      }));
+
+      // Llama a `animateProgress` después de que las habilidades se han actualizado y renderizado
+      setTimeout(() => {
+        animateProgress(this.estudiante.habilidades);
+      }, 100);
       },
       error: (error:Error) => {
         console.error('Error al cargar los datos del estudiante', error);
@@ -61,10 +74,17 @@ export class HBdComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    // Verifica si 'skills' está correctamente inicializado
-    console.log(this.skills);
-
-    // Llama a 'animateProgress' con las habilidades correctamente inicializadas
-    animateProgress(this.skills);
+     // Llama a `animateProgress` solo si las habilidades están disponibles
+    if (this.estudiante.habilidades && this.estudiante.habilidades.length > 0) {
+      animateProgress(this.estudiante.habilidades);
+    }
   }
+  // private mapStudentSkills(studentSkills: any[]): Skill[] {
+  //   return studentSkills.map((skill, index) => ({
+  //     id: `crc-${skill.nombreHabilidad.toLowerCase().replace(/ /g, '-')}-${index}`, // Asegura un ID único
+  //     name: skill.nombreHabilidad,
+  //     progressEndValue: skill.nivelHabilidad || 50, // Ajusta esto según el campo que represente el nivel
+  //     color: '#5DADE2' // Puedes definir un color dinámico si es necesario
+  //   }));
+  // }
 }

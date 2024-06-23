@@ -27,6 +27,8 @@ export class PagMainEstuComponent implements OnInit {
   estudiante: any = {};
   skills: any[]= [];
   habilidadesSeleccionadas: number[] = [];
+  filteredOfertas: any[] = [];
+  searchTerm: string = '';
 
   constructor(
     private authService:AuthService, 
@@ -66,6 +68,7 @@ export class PagMainEstuComponent implements OnInit {
         this.ofertas = response.ofertas.data;
         this.currentPage= response.ofertas.currentPage;
         this.totalPages = response.ofertas.last_page;
+        this.filteredOfertas=this.ofertas;
         this.loading=false;
       },
       error: (error) => {
@@ -117,6 +120,7 @@ export class PagMainEstuComponent implements OnInit {
         this.ofertas = response.ofertas.data;
         this.currentPage = response.ofertas.currentPage;
         this.totalPages = response.ofertas.last_page;
+        this.filterOfertas();
       }
     });
   }
@@ -124,11 +128,39 @@ export class PagMainEstuComponent implements OnInit {
   // Método para manejar cambios en los checkboxes de habilidades
   onSkillChange(skillId: number): void {
     const index = this.habilidadesSeleccionadas.indexOf(skillId);
-    if (index === -1) {
-      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
-    } else {
+    if (index > -1) {
       this.habilidadesSeleccionadas.splice(index, 1); // Quitar habilidad seleccionada si ya está seleccionada
+    } else {
+      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
     }
+    this.filterOfertas();
+  }
+  onSearchChange(): void {
+    this.filterOfertas(); // Filtrar las ofertas cuando cambia el término de búsqueda
+  }
+
+  filterOfertas(): void {
+    const searchTerm = this.searchTerm.toLowerCase();
+    let filtered = this.ofertas;
+
+    if (this.habilidadesSeleccionadas.length > 0) {
+      filtered = filtered.filter(oferta =>
+        oferta.habilidades.some((habilidad: any) =>
+          this.habilidadesSeleccionadas.includes(habilidad.id)
+        )
+      );
+    }
+
+    if (searchTerm) {
+      filtered = filtered.filter(oferta =>
+        oferta.titulo.toLowerCase().includes(searchTerm) ||
+        oferta.descripcion.toLowerCase().includes(searchTerm) ||
+        oferta.carrera.toLowerCase().includes(searchTerm) ||
+        oferta.ciudad.toLowerCase().includes(searchTerm)
+      );
+    }
+
+    this.filteredOfertas = filtered;
   }  
 
   resendVerificationEmail(){
@@ -155,11 +187,8 @@ export class PagMainEstuComponent implements OnInit {
     },
     error: (error: any)=>{
       console.log('Error al postular', error);
-      if(error.status === 400){
-        this.errorMessage2 = 'Ya haz postulado a esta oferta';
-      }else {
-        this.errorMessage2= 'Ocurrio un error al postular a la oferta'
-      }
+      this.errorMessage2 = 'Ya haz postulado a esta oferta o su correo no está verificado';
+      this.successMessage=null;
     }
    });
   }

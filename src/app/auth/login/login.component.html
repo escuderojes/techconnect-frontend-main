@@ -5,7 +5,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/LogoUCV_2018.png/800px-LogoUCV_2018.png" alt="UCV" height="57" width="300">
                 <h2>¡Te damos la bienvenida a TechConnect!</h2>
                 <p>¿Aún no tienes una cuenta?</p>
-                <input type="button" value="Registrarse" id="sign-up">
+                <input type="button" value="Registrarse" id="sign-up" [routerLink]="['/home']">
             </div>
         </div>
         <div class="form-information">
@@ -31,7 +31,7 @@
                         <label for="rememberCheck">Mantener Sesión Iniciada</label>
                     </div>
                     <div class="recordar">
-                        <a [routerLink]="['reset-password']">¿Has olvidado tu contraseña?</a>
+                        <a [routerLink]="['/forgot-password']">¿Has olvidado tu contraseña?</a>
                     </div>
                     <input type="submit" value="Iniciar sesión" id="sign-in">
                     

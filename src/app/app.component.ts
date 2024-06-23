@@ -12,18 +12,20 @@ import { JobOfferComponent } from './reclutador/job-offer/job-offer.component';
 import { PageMainRecluComponent } from './reclutador/page-main-reclu/page-main-reclu.component';
 import { ActuDataRecluComponent } from './reclutador/actu-data-reclu/actu-data-reclu.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
-
+import { SeePostulationComponent } from './reclutador/see-postulation/see-postulation.component';
+import { MisOfertasComponent } from './reclutador/mis-ofertas/mis-ofertas.component';
+import { MisPostulacionesComponent } from './estudiante/mis-postulaciones/mis-postulaciones.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterEstuComponent, RegisterRecluComponent, PresentationComponent, PagMainEstuComponent, PageMainRecluComponent, ProfileEstuComponent, InserSkillEstuComponent, InserDataEstuComponent, JobOfferComponent, ActuDataRecluComponent, ResetPasswordComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterEstuComponent, RegisterRecluComponent, PresentationComponent, PagMainEstuComponent, PageMainRecluComponent, ProfileEstuComponent, InserSkillEstuComponent, InserDataEstuComponent, JobOfferComponent, ActuDataRecluComponent, ResetPasswordComponent, SeePostulationComponent, MisOfertasComponent, MisPostulacionesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'techconnect-fronted-main';
   constructor(router: Router){
-    console.log('Registered Routers:',router.config)
+    
   }
 }

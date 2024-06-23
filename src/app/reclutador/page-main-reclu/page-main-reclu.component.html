@@ -44,8 +44,12 @@
                                 <form>
                                     <!-- habilidades filtro -->
                                     <div class="form-check" *ngFor="let skill of skills">
-                                        <input class="form-check-input" type="checkbox" id="habilidad{{skill.id}}"
-                                            [value]="skill.id" [(ngModel)]="habilidadesSeleccionadas" (change)="onSkillChange(skill.id)">
+                                        <input 
+                                        class="form-check-input" 
+                                        type="checkbox" 
+                                        id="habilidad{{skill.id}}" 
+                                        [checked]="habilidadesSeleccionadas.includes(skill.id)"
+                                        (change)="onSkillChange(skill.id)">
                                         <label class="form-check-label" for="habilidad{{skill.id}}">
                                             {{skill.nombreHabilidad}}
                                         </label>
@@ -53,10 +57,16 @@
                                 </form>
                             </div>
                         </div>
-                        <form class="d-flex" (submit)="buscarEstudiantesPorHabilidades()">
-                            <input class="form-control me-2" type="search"
-                                placeholder="¿Buscas a alguien en especifico?" aria-label="Search" id="src-bar">
-                            <button class="btn btn-outline-success" type="submit" id="btn-search">Buscar</button>
+                        <form class="d-flex" >
+                            <input 
+                            class="form-control me-2" 
+                            type="search"
+                            placeholder="¿Buscas a alguien en especifico?" 
+                            aria-label="Search" 
+                            id="src-bar" 
+                            [(ngModel)]="searchTerm"
+                            (input)="onSearchChange()"
+                            name="search">
                         </form>
                     </div>
                 </div>
@@ -64,7 +74,7 @@
         </div>
         <a [routerLink]="['/reclutador/profile/', reclutador.id]" class="nav-link" id="nav-perfil">Ver perfil</a>
         <a [routerLink]="['/reclutador/job-offer']" href="#" class="nav-link" id="nav-mess">Registrar Oferta Laboral</a>
-        <a href="#" class="nav-link" id="nav-mess">Postulaciones <span class="badge bg-secondary"
+        <a [routerLink]="['/reclutador/mis-ofertas']" href="#" class="nav-link" id="nav-mess">Mis Ofertas <span class="badge bg-secondary"
                 id="mess-span">4</span></a>
         <a class="nav-link" href="#" id="nav-mess" (click)="onLogout($event)">Cerrar Sesión</a>
     </header>
@@ -84,7 +94,7 @@
           <div *ngIf="!loading">
             <div class="row">
                 <!-- Recorrer la lista de estudiantes y mostrar cada uno en una tarjeta -->
-                <div *ngFor="let estudiantes of estudiantes" class="col-md-4 mb-4">
+                <div *ngFor="let estudiantes of filteredEstudiantes" class="col-md-4 mb-4">
                     <div class="card">
                     <div class="head">
                         <div class="circle"></div>

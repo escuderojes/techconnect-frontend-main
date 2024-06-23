@@ -6,7 +6,7 @@
                     id="navtxt">Retornar</a>
             </li>
         </ul>
-        <h1>Bienvenido, Nombre de la Empresa!</h1>
+        <h1>Bienvenido, {{reclutador.nombreEmpresa}}</h1>
     </header>
 
     <div class="container-sm">
@@ -29,10 +29,14 @@
             <p><strong>Dirección:</strong> {{ reclutador?.direccion || 'Dirección de la Empresa' }}</p>
             <p><strong>Teléfono:</strong>  {{ reclutador?.telefono || '123-456-7890' }}</p>
 
-              <!-- Botón que cambia según si hay datos del reclutador o no -->
-            <button type="button" class="btn btn-primary" id="btndata" (click)="onButtonClick()">
-                {{ reclutadorId ? 'Actualizar Datos' : 'Registrar Datos' }}
-            </button>
+            <div *ngIf="reclutador.id">
+                <button type="button" class="btn btn-primary" id="btndata" [routerLink]="['/reclutador/update/data/', reclutadorId]"> Actualizar Datos
+                </button>
+            </div>
+            <div *ngIf="!reclutador.id">
+                <button type="button" class="btn btn-primary" id="btndata" [routerLink]="['/reclutador/register/data']"> Registrar Datos
+                </button>
+            </div>
         </div>
                 <!-- Mostrar mensaje de error si hay alguno -->
         <div *ngIf="errorMessage" class="alert alert-danger">

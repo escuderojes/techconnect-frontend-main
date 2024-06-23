@@ -31,17 +31,11 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav m-auto">
 
-                            <a [routerLink]="['/portafolio_reclu/about']" class="nav-item nav-link">Sobre mi</a>
+                            <a [routerLink]="['/portafolio_reclu/about', estudianteId]" class="nav-item nav-link">Sobre mi</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Habilidades</a>
-                                <div class="dropdown-menu">
-                                    <a [routerLink]="['/portafolio_reclu/hab/pro']"
-                                        class="dropdown-item">Programación</a>
-                                    <a [routerLink]="['/portafolio_reclu/hab/bd']" class="dropdown-item">Base de
-                                        Datos</a>
-                                </div>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" [routerLink]="['/portafolio_reclu/hab/bd', estudianteId]">Habilidades</a>
                             </div>
-                            <a [routerLink]="['/portafolio_reclu/contact']"
+                            <a [routerLink]="['/portafolio_reclu/contact', estudianteId]"
                                 class="nav-item nav-link active">Contacto</a>
                             <a [routerLink]="['/reclutador/home.reclutador']" class="nav-item nav-link">Salir</a>
                         </div>

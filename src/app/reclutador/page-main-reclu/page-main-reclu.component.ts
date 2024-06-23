@@ -28,6 +28,8 @@ export class PageMainRecluComponent implements OnInit{
   reclutador: any = {};
   skills: any[] = [];
   habilidadesSeleccionadas: number[] = [];
+  filteredEstudiantes: any[] = [];
+  searchTerm: string = '';
 
   constructor(
     private authService:AuthService, 
@@ -66,6 +68,7 @@ export class PageMainRecluComponent implements OnInit{
         this.estudiantes = response.data;
         this.currentPage = response.current_page;
         this.totalPages = response.last_page;
+        this.filteredEstudiantes = this.estudiantes;
         this.loading=false;
       },
       error: (error) => {
@@ -126,6 +129,7 @@ export class PageMainRecluComponent implements OnInit{
         this.estudiantes = response.data;
         this.currentPage = response.current_page;
         this.totalPages = response.last_page;
+        this.filterEstudiantes();
       }
     });
   }
@@ -133,12 +137,41 @@ export class PageMainRecluComponent implements OnInit{
   // Método para manejar cambios en los checkboxes de habilidades
   onSkillChange(skillId: number): void {
     const index = this.habilidadesSeleccionadas.indexOf(skillId);
-    if (index === -1) {
-      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
-    } else {
+    if (index > -1) {
       this.habilidadesSeleccionadas.splice(index, 1); // Quitar habilidad seleccionada si ya está seleccionada
+    } else {
+      this.habilidadesSeleccionadas.push(skillId); // Agregar habilidad seleccionada
     }
+    this.filterEstudiantes();
   }
+  onSearchChange(): void {
+    this.filterEstudiantes(); // Filtrar estudiantes cuando cambia el término de búsqueda
+  }
+
+  filterEstudiantes(): void {
+    const searchTerm = this.searchTerm.toLowerCase();
+    let filtered = this.estudiantes;
+
+    if (this.habilidadesSeleccionadas.length > 0) {
+      filtered = filtered.filter(estudiante =>
+        estudiante.habilidades.some((habilidad: any) =>
+          this.habilidadesSeleccionadas.includes(habilidad.id)
+        )
+      );
+    }
+
+    if (searchTerm) {
+      filtered = filtered.filter(estudiante =>
+        estudiante.nombres.toLowerCase().includes(searchTerm) ||
+        estudiante.carrera.toLowerCase().includes(searchTerm) ||
+        estudiante.habilidades.some((habilidad: any) =>
+          habilidad.nombreHabilidad.toLowerCase().includes(searchTerm)
+        )
+      );
+    }
+
+    this.filteredEstudiantes = filtered;
+  }  
 
   resendVerificationEmail(){
     this.authService.resendVerification().subscribe({

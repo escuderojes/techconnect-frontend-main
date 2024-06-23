@@ -52,12 +52,6 @@ export class ProfileEstuComponent implements OnInit{
     });
   }
 
-  onButtonClick(): void{
-    const action= this.estudiante ? 'Actualizar' : 'Insertar';
-    console.log('Navigate to:',`estudiante/inser-data/${this.estudianteId}/${action}` )
-   this.router.navigate([`estudiante/inser-data/${this.estudianteId}/${action}`]);
-  }
-
   getImageUrl(): string {
     if (this.estudiante.photo === 'default.png') {
       return 'https://www.researchgate.net/profile/Maria-Monreal/publication/315108532/figure/fig1/AS:472492935520261@1489662502634/Figura-2-Avatar-que-aparece-por-defecto-en-Facebook.png';
